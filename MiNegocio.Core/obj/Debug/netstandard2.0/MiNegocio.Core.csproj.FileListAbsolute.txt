@@ -1,0 +1,9 @@
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Core\bin\Debug\netstandard2.0\MiNegocio.Core.deps.json
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Core\bin\Debug\netstandard2.0\MiNegocio.Core.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Core\bin\Debug\netstandard2.0\MiNegocio.Core.pdb
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Core\obj\Debug\netstandard2.0\MiNegocio.Core.AssemblyInfoInputs.cache
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Core\obj\Debug\netstandard2.0\MiNegocio.Core.AssemblyInfo.cs
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Core\obj\Debug\netstandard2.0\MiNegocio.Core.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Core\obj\Debug\netstandard2.0\MiNegocio.Core.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Core\obj\Debug\netstandard2.0\MiNegocio.Core.pdb
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Core\obj\Debug\netstandard2.0\MiNegocio.Core.csprojAssemblyReference.cache
