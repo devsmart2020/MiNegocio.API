@@ -304,3 +304,4 @@ C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Debug\netcor
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Debug\netcoreapp3.1\MiNegocio.Api.dll
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Debug\netcoreapp3.1\MiNegocio.Api.pdb
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Debug\netcoreapp3.1\MiNegocio.Api.genruntimeconfig.cache
+C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
