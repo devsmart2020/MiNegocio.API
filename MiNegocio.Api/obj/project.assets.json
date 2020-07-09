@@ -8852,11 +8852,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Api\\MiNegocio.Api.csproj",
+      "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Api\\MiNegocio.Api.csproj",
       "projectName": "MiNegocio.Api",
-      "projectPath": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Api\\MiNegocio.Api.csproj",
+      "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Api\\MiNegocio.Api.csproj",
       "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Api\\obj\\",
+      "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -8876,11 +8876,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj": {
-              "projectPath": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj"
+            "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj": {
+              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj"
             },
-            "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj"
+            "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj"
             }
           }
         }

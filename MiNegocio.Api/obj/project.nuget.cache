@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SNw5SKPPVFW0mNKhwcGTzJFZ5MqhS9n6IfzcnWWnLckZoArWkql0xOVKxruUh7Ta685Q4xbbQwHvr8HryjsXQQ==",
+  "dgSpecHash": "JozW/QLr/m4mU8rbqomH5wQ1LJwhI4hbQn149bEc1nl639/+24ylDPYFazSh4X1xJ1cIKsufGpj7zkrlaVrtQw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Api\\MiNegocio.Api.csproj",
+  "projectFilePath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Api\\MiNegocio.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrador\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Administrador\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",

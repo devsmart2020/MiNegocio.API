@@ -1348,11 +1348,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj",
       "projectName": "MiNegocio.Infrastructure",
-      "projectPath": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -1372,8 +1372,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj": {
-              "projectPath": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj"
+            "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj": {
+              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj"
             }
           }
         }

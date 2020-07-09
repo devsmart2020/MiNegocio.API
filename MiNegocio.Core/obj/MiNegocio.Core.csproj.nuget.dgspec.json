@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj": {}
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj": {
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj",
         "projectName": "MiNegocio.Core",
-        "projectPath": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj",
+        "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj",
         "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.Core\\obj\\",
+        "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

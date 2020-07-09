@@ -10,3 +10,15 @@ C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Infrastructure\obj\Debug
 C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Infrastructure\obj\Debug\netstandard2.0\MiNegocio.Infrastructure.csproj.CopyComplete
 C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Infrastructure\obj\Debug\netstandard2.0\MiNegocio.Infrastructure.dll
 C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Infrastructure\obj\Debug\netstandard2.0\MiNegocio.Infrastructure.pdb
+C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\bin\Debug\netstandard2.0\MiNegocio.Infrastructure.deps.json
+C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\bin\Debug\netstandard2.0\MiNegocio.Infrastructure.dll
+C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\bin\Debug\netstandard2.0\MiNegocio.Infrastructure.pdb
+C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\bin\Debug\netstandard2.0\MiNegocio.Core.dll
+C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\bin\Debug\netstandard2.0\MiNegocio.Core.pdb
+C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Debug\netstandard2.0\MiNegocio.Infrastructure.csprojAssemblyReference.cache
+C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Debug\netstandard2.0\MiNegocio.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Debug\netstandard2.0\MiNegocio.Infrastructure.AssemblyInfo.cs
+C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Debug\netstandard2.0\MiNegocio.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Debug\netstandard2.0\MiNegocio.Infrastructure.csproj.CopyComplete
+C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Debug\netstandard2.0\MiNegocio.Infrastructure.dll
+C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Debug\netstandard2.0\MiNegocio.Infrastructure.pdb
