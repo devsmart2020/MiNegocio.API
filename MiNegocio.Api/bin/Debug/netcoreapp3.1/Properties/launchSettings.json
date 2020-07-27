@@ -3,8 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      //"applicationUrl": "http://localhost:50266",
-      "applicationUrl": "http://192.168.1.150:9095",
+      "applicationUrl": "http://localhost:53777",
       "sslPort": 44326
     }
   },
@@ -16,19 +15,17 @@
       "launchUrl": "api/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "ancmHostingModel": "OutOfProcess"
+      }
     },
     "MiNegocio.Api": {
-      "commandName": "IISExpress",
+      "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "ancmHostingModel": "OutOfProcess",
-      //"applicationUrl": "https://localhost:5001;http://localhost:5000",
-      "applicationUrl": "http://192.168.1.150:9095"
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
     }
   }
 }

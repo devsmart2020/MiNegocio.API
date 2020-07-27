@@ -61,8 +61,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbventa> Post(Tbventa entity)
         {
-            await _context.Tbventa.AddAsync(entity);
-            var query = await _context.SaveChangesAsync();
+             await _context.Tbventa.AddAsync(entity);
+            var query = _context.SaveChanges();
             if (query > 0)
             {
                 return entity;
@@ -92,7 +92,7 @@ namespace MiNegocio.Infrastructure.Repositories
                 .Where(x => x.Fecha.Date >= fchaIni.Date && x.Fecha.Date <= fchaFin.Date)
                 .Select(x => new VentasxFecha()
                 {
-                    IdVenta = x.IdVenta,
+                    IdVenta = (int)x.IdVenta,
                     Documento = x.IdCliente,
                     Cliente = x.IdClienteNavigation.Nombres + " " + x.IdClienteNavigation.Apellidos,
                     Fecha = x.Fecha,
@@ -108,8 +108,6 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<IEnumerable<VentasDetalleVentaxFecha>> DetalleVentaxFecha(DateTime fchaIni, DateTime fchaFin)
         {
-
-
             IEnumerable<VentasDetalleVentaxFecha> ventaProducto = await _context.Tbventaproducto
                  .Where(x => x.IdVentaNavigation.Fecha.Date >= fchaIni.Date && x.IdVentaNavigation.Fecha.Date <= fchaFin.Date)
                  .Select(x => new VentasDetalleVentaxFecha()
@@ -180,7 +178,7 @@ namespace MiNegocio.Infrastructure.Repositories
             .Where(x => x.IdVenta.Equals(entity.IdVenta))
             .Select(x => new VentasRemisionVenta()
             {
-                IdVenta = x.IdVenta,
+                IdVenta = (int)x.IdVenta,
                 IdCliente = x.IdCliente,
                 NomCliente = $"{x.IdClienteNavigation.Nombres} {x.IdClienteNavigation.Apellidos}",
                 TelCliente = x.IdClienteNavigation.Telefono,

@@ -45,10 +45,7 @@ namespace MiNegocio.Infrastructure.Data
         public virtual DbSet<Tbventaanulada> Tbventaanulada { get; set; }
         public virtual DbSet<Tbventaproducto> Tbventaproducto { get; set; }
         public virtual DbSet<Tbventaservicio> Tbventaservicio { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {  
-        }
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -502,12 +499,6 @@ namespace MiNegocio.Infrastructure.Data
 
                 entity.Property(e => e.Imagen)
                     .HasColumnType("varchar(500)")
-                    .HasCharSet("utf8")
-                    .HasCollation("utf8_unicode_ci");
-
-                entity.Property(e => e.Nombre)
-                    .IsRequired()
-                    .HasColumnType("varchar(70)")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_unicode_ci");
 
@@ -1255,10 +1246,7 @@ namespace MiNegocio.Infrastructure.Data
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_TbVentaServicio_TbVenta1");
             });
-
-            OnModelCreatingPartial(modelBuilder);
         }
 
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

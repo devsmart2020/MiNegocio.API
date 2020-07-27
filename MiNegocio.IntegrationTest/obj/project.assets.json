@@ -3479,11 +3479,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.IntegrationTest\\MiNegocio.IntegrationTest.csproj",
+      "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.IntegrationTest\\MiNegocio.IntegrationTest.csproj",
       "projectName": "MiNegocio.IntegrationTest",
-      "projectPath": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.IntegrationTest\\MiNegocio.IntegrationTest.csproj",
+      "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.IntegrationTest\\MiNegocio.IntegrationTest.csproj",
       "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrador\\Source\\Repos\\MiNegocio.API\\MiNegocio.IntegrationTest\\obj\\",
+      "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.IntegrationTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -3546,7 +3546,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

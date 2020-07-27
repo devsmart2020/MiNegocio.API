@@ -46,7 +46,7 @@ namespace MiNegocio.Api.Controllers
         public async Task<ActionResult<Tbventa>> Post(Tbventa entity)
         {
             if (entity != null)
-            {
+            {              
                 Tbventa model = await _repository.Post(entity);
                 if (model != null)
                 {

@@ -23,7 +23,7 @@ namespace MiNegocio.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<soport43_minegocioContext>(options =>
-            options.UseMySql(Configuration.GetConnectionString("ConnectionMySql")));
+            options.UseMySql(Configuration.GetConnectionString("ConnectionMySqlCyj")));
             services.AddControllers();
 
             //Resolver Dependencias
