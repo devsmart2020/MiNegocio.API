@@ -3,13 +3,13 @@ using MiNegocio.Core.Entities;
 
 namespace MiNegocio.Infrastructure.Data
 {
-    public partial class soport43_minegocioContext : DbContext
+    public partial class soport43_minegociovillegasContext : DbContext
     {
-        public soport43_minegocioContext()
+        public soport43_minegociovillegasContext()
         {
         }
 
-        public soport43_minegocioContext(DbContextOptions<soport43_minegocioContext> options)
+        public soport43_minegociovillegasContext(DbContextOptions<soport43_minegociovillegasContext> options)
             : base(options)
         {
         }
@@ -45,7 +45,10 @@ namespace MiNegocio.Infrastructure.Data
         public virtual DbSet<Tbventaanulada> Tbventaanulada { get; set; }
         public virtual DbSet<Tbventaproducto> Tbventaproducto { get; set; }
         public virtual DbSet<Tbventaservicio> Tbventaservicio { get; set; }
-       
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -499,6 +502,11 @@ namespace MiNegocio.Infrastructure.Data
 
                 entity.Property(e => e.Imagen)
                     .HasColumnType("varchar(500)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_unicode_ci");
+
+                entity.Property(e => e.Nombre)
+                    .HasColumnType("varchar(90)")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_unicode_ci");
 
@@ -1246,7 +1254,10 @@ namespace MiNegocio.Infrastructure.Data
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_TbVentaServicio_TbVenta1");
             });
+
+            OnModelCreatingPartial(modelBuilder);
         }
 
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

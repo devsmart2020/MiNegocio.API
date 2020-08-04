@@ -12,9 +12,9 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class CompraRepository : ICompraRepository
     {
-        private readonly soport43_minegocioContext _context;
+        private readonly soport43_minegociovillegasContext _context;
 
-        public CompraRepository(soport43_minegocioContext context)
+        public CompraRepository(soport43_minegociovillegasContext context)
         {
             _context = context;
         }

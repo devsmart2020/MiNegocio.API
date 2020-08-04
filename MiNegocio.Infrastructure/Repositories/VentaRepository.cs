@@ -13,9 +13,9 @@ namespace MiNegocio.Infrastructure.Repositories
 
     public class VentaRepository : IVentaRepository
     {
-        private readonly soport43_minegocioContext _context;
+        private readonly soport43_minegociovillegasContext _context;
 
-        public VentaRepository(soport43_minegocioContext context)
+        public VentaRepository(soport43_minegociovillegasContext context)
         {
             _context = context;
         }

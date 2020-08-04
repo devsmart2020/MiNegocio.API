@@ -9,9 +9,9 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class EstadoCompraRepository : IEstadoCompraRepository
     {
-        private readonly soport43_minegocioContext _context;
+        private readonly soport43_minegociovillegasContext _context;
 
-        public EstadoCompraRepository(soport43_minegocioContext context)
+        public EstadoCompraRepository(soport43_minegociovillegasContext context)
         {
             _context = context;
         }

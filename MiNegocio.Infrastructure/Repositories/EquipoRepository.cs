@@ -12,9 +12,9 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class EquipoRepository : IEquipoRepository
     {
-        private readonly soport43_minegocioContext _context;
+        private readonly soport43_minegociovillegasContext _context;
 
-        public EquipoRepository(soport43_minegocioContext context)
+        public EquipoRepository(soport43_minegociovillegasContext context)
         {
             _context = context;
         }

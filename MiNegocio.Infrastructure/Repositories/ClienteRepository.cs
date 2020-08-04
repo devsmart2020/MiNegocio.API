@@ -9,8 +9,8 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class ClienteRepository : IClienteRepository
     {
-        private readonly soport43_minegocioContext _context;
-        public ClienteRepository(soport43_minegocioContext context)
+        private readonly soport43_minegociovillegasContext _context;
+        public ClienteRepository(soport43_minegociovillegasContext context)
         {
             _context = context;
         }

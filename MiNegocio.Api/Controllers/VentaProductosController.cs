@@ -46,7 +46,7 @@ namespace MiNegocio.Api.Controllers
             {
                 bool query = await _repository.Post(entity);
                 if (query)
-                {                    
+                {
                     return Created("api/VentaProductos", query);
                 }
                 else

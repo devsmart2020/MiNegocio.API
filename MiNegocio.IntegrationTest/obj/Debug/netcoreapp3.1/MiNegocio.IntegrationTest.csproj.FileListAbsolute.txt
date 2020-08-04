@@ -86,7 +86,6 @@ C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.IntegrationTest\bin\
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.IntegrationTest\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.IntegrationTest\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.IntegrationTest\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.IntegrationTest\obj\Debug\netcoreapp3.1\MiNegocio.IntegrationTest.csprojAssemblyReference.cache
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.IntegrationTest\obj\Debug\netcoreapp3.1\MiNegocio.IntegrationTest.AssemblyInfoInputs.cache
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.IntegrationTest\obj\Debug\netcoreapp3.1\MiNegocio.IntegrationTest.AssemblyInfo.cs
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.IntegrationTest\obj\Debug\netcoreapp3.1\MiNegocio.IntegrationTest.csproj.CoreCompileInputs.cache
