@@ -305,6 +305,5 @@ C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Release\netc
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Release\netcoreapp3.1\MiNegocio.Api.dll
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Release\netcoreapp3.1\MiNegocio.Api.pdb
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Release\netcoreapp3.1\MiNegocio.Api.genruntimeconfig.cache
-C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Properties\serviceDependencies.MiNegocioApi - Web Deploy.json
-C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Properties\serviceDependencies.MiNegocioApi - Web Deploy1.json
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Properties\serviceDependencies.cyjcomunicaciones - Web Deploy.json
+C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Properties\serviceDependencies.villegasimportaciones - Web Deploy.json
