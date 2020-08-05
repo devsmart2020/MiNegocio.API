@@ -10,7 +10,7 @@ namespace MiNegocio.Api.Controllers
     public class ClientesController : ControllerBase
     {
         private readonly IClienteRepository _repository;
-        //Hola Como estas
+        //Hola
         public ClientesController(IClienteRepository repository)
         {
             _repository = repository;
