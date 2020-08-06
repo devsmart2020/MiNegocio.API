@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MiNegocio.Core.Entities;
 using MiNegocio.Core.Interfaces;
@@ -106,5 +108,7 @@ namespace MiNegocio.Api.Controllers
                 return BadRequest();
             }
         }
+
+      
     }
 }

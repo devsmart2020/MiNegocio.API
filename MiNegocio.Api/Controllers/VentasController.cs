@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Internal;
 using MiNegocio.Core.Entities;
 using MiNegocio.Core.Interfaces;
 using MiNegocio.Core.ReportsEntities;
+using SQLitePCL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -176,6 +177,19 @@ namespace MiNegocio.Api.Controllers
             else
             {
                 return BadRequest();
+            }
+        }
+
+        [HttpPost("VentaPorCliente")]
+        public async Task<ActionResult<IEnumerable<VentasPorCliente>>> VentaPorCliente(VentasPorCliente entity)
+        {
+            if (entity != null)
+            {
+                return Ok(await _repository.VentaPorCliente(entity));
+            }
+            else
+            {
+                return BadRequest(null);
             }
         }
     }

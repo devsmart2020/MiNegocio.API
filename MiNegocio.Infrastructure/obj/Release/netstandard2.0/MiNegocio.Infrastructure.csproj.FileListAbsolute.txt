@@ -22,3 +22,15 @@ C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\R
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.csproj.CopyComplete
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.dll
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.pdb
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Infrastructure\bin\Release\netstandard2.0\MiNegocio.Infrastructure.deps.json
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Infrastructure\bin\Release\netstandard2.0\MiNegocio.Infrastructure.dll
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Infrastructure\bin\Release\netstandard2.0\MiNegocio.Infrastructure.pdb
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Infrastructure\bin\Release\netstandard2.0\MiNegocio.Core.dll
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Infrastructure\bin\Release\netstandard2.0\MiNegocio.Core.pdb
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.csprojAssemblyReference.cache
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.AssemblyInfo.cs
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.csproj.CopyComplete
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.dll
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.pdb
