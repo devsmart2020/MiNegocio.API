@@ -226,15 +226,15 @@ namespace MiNegocio.Infrastructure.Repositories
         public async Task<IEnumerable<VentasPorCliente>> VentaPorCliente(VentasPorCliente entity)
         {
             IEnumerable<VentasPorCliente> ventaCliente = await _context.Tbventa
-                .Where(x => x.IdVenta.Equals(entity.IdVenta) || x.IdCliente.Equals(entity.IdCliente)
-                || x.IdClienteNavigation.Nombres.Equals(entity.NombreCliente) || x.Fecha.Date == entity.Fecha.Date)
+                .Where(x => x.IdVenta.Equals(entity.Venta) || x.IdCliente.Equals(entity.IdCliente)
+                || x.IdClienteNavigation.Nombres.Equals(entity.Cliente) || x.Fecha.Date == entity.Fecha.Date)
                 .Select(x => new VentasPorCliente
                 {
-                    IdVenta = x.IdVenta,
+                    Venta = x.IdVenta,
                     IdCliente = x.IdCliente,
-                    NombreCliente = $"{x.IdClienteNavigation.Nombres} {x.IdClienteNavigation.Apellidos}",
-                    TelCliente = x.IdClienteNavigation.Telefono,
-                    DireccionCliente = x.IdClienteNavigation.Direccion,
+                    Cliente = $"{x.IdClienteNavigation.Nombres} {x.IdClienteNavigation.Apellidos}",
+                    Teléfono = x.IdClienteNavigation.Telefono,
+                    Dirección = x.IdClienteNavigation.Direccion,
                     Fecha = x.Fecha,
                     IdOrden = x.IdOrden,
                     FormaPago = x.IdFormaPagoNavigation.FormaPago,

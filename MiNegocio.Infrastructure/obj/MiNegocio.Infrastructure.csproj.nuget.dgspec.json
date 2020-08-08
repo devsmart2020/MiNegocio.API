@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\devsm\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj": {}
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\devsm\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj": {
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\devsm\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj",
         "projectName": "MiNegocio.Core",
-        "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj",
-        "packagesPath": "C:\\Users\\devsm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\obj\\",
+        "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj",
+        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\devsm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -59,24 +59,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\devsm\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj": {
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\devsm\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj",
         "projectName": "MiNegocio.Infrastructure",
-        "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\devsm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\devsm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -90,8 +90,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\devsm\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj": {
-                "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj"
+              "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj"
               }
             }
           }
@@ -132,7 +132,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
