@@ -244,5 +244,10 @@ namespace MiNegocio.Infrastructure.Repositories
                 }).ToListAsync();
             return ventaCliente;
         }
+
+        public Task<bool> AnularVenta(IList<VentasDetalleRemisionVenta> entity)
+        {
+            
+        }
     }
 }
