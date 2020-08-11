@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using MiNegocio.Core.Entities;
 using MiNegocio.Core.Interfaces;
 using MiNegocio.Core.ReportsEntities;
@@ -14,9 +13,9 @@ namespace MiNegocio.Infrastructure.Repositories
 
     public class VentaRepository : IVentaRepository
     {
-        private readonly soport43_minegociovillegasContext _context;
+        private readonly soport43_minegociocyjContext _context;
 
-        public VentaRepository(soport43_minegociovillegasContext context)
+        public VentaRepository(soport43_minegociocyjContext context)
         {
             _context = context;
         }
@@ -62,7 +61,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbventa> Post(Tbventa entity)
         {
-             await _context.Tbventa.AddAsync(entity);
+            await _context.Tbventa.AddAsync(entity);
             var query = _context.SaveChanges();
             if (query > 0)
             {
@@ -239,15 +238,93 @@ namespace MiNegocio.Infrastructure.Repositories
                     IdOrden = x.IdOrden,
                     FormaPago = x.IdFormaPagoNavigation.FormaPago,
                     Usuario = x.IdUsuarioNavigation.Nombres,
-                    Observaciones = x.Observaciones                    
+                    Observaciones = x.Observaciones
 
                 }).ToListAsync();
             return ventaCliente;
         }
 
-        public Task<bool> AnularVenta(IList<VentasDetalleRemisionVenta> entity)
+        public async Task<bool> AnularVenta(VentasDetalleRemisionVenta entity)
         {
-            
+            //Guardar en TbVtaAnulada
+            IEnumerable<Tbventaproducto> tbventaproducto = await _context.Tbventaproducto
+                .Where(x => x.IdVenta.Equals(entity.IdVenta))
+                .ToListAsync();
+            //Tbventaanulada tbventaanulada = new Tbventaanulada()
+            //{
+            //    IdVenta = tbventaproducto.IdVenta,
+            //    Fecha = tbventaproducto.IdVentaNavigation.Fecha,
+            //    Usuario = tbventaproducto.IdVentaNavigation.IdUsuario,
+            //    Observaciones = tbventaproducto.IdVentaNavigation.Observaciones,
+            //    IdProducto = tbventaproducto.IdProducto,
+            //    CantidadProducto = tbventaproducto.Cantidad,
+            //    TotalVenta = (tbventaproducto.Cantidad * tbventaproducto.IdProductoNavigation.VlrVenta) - tbventaproducto.Descuento
+            //};
+            //await _context.AddAsync(tbventaanulada);
+            var query = await _context.SaveChangesAsync();
+            if (query > 0)
+            {
+                //Descontar producto Inventario
+                IEnumerable<Tbventaproducto> tbventaproductos = await _context.Tbventaproducto.
+                    Where(x => x.IdVenta.Equals(entity.IdVenta))
+                    .ToListAsync();
+                foreach (var item in tbventaproductos)
+                {
+                    Tbproducto entityProducto = await _context.Tbproducto.
+                        Where(x => x.IdProducto.Equals(item.IdProducto))
+                        .FirstOrDefaultAsync();
+                    if (entityProducto != null)
+                    {
+                        entityProducto.Existencia = entityProducto.Existencia + item.Cantidad;
+                    }
+                    else
+                    {
+                        //No hay producto
+                        return false;
+                    }
+                }
+                var updateProducto = await _context.SaveChangesAsync();
+                if (updateProducto > 0)
+                {
+                    //Elimina VentaProducto
+                    using (var context = new soport43_minegociocyjContext())
+                    {
+                        context.RemoveRange(tbventaproductos);
+                        await context.SaveChangesAsync();
+                    }
+                    //Elimina Venta
+                    using (var context = new soport43_minegociocyjContext())
+                    {
+                        Tbventa tbventa = await _context.Tbventa
+                            .Where(x => x.IdVenta.Equals(entity.IdVenta))
+                            .FirstOrDefaultAsync();
+                        context.Remove<Tbventa>(tbventa);
+                        var eliminaVenta = await context.SaveChangesAsync();
+                        if (eliminaVenta > 0)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+                else
+                {
+                    return false;
+
+                    //No sumó producto al inventario
+                }
+            }
+            else
+            {
+                return false;
+                //No guardó ventaanulada
+            }
+
+
+
         }
     }
 }

@@ -12,9 +12,9 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class CreditoRepository : ICreditoRepository
     {
-        private readonly soport43_minegociovillegasContext _context;
+        private readonly soport43_minegociocyjContext _context;
 
-        public CreditoRepository(soport43_minegociovillegasContext context)
+        public CreditoRepository(soport43_minegociocyjContext context)
         {
             _context = context;
         }

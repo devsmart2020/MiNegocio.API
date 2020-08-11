@@ -11,9 +11,9 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class ModeloRepository : IModeloRepository
     {
-        private readonly soport43_minegociovillegasContext _context;
+        private readonly soport43_minegociocyjContext _context;
 
-        public ModeloRepository(soport43_minegociovillegasContext context)
+        public ModeloRepository(soport43_minegociocyjContext context)
         {
             _context = context;
         }

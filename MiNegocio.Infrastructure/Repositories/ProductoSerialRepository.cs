@@ -12,9 +12,9 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class ProductoSerialRepository : IProductoSerialRepository
     {
-        private readonly soport43_minegociovillegasContext _context;
+        private readonly soport43_minegociocyjContext _context;
 
-        public ProductoSerialRepository(soport43_minegociovillegasContext context)
+        public ProductoSerialRepository(soport43_minegociocyjContext context)
         {
             _context = context;
         }

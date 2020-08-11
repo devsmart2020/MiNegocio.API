@@ -9,9 +9,9 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class FormaPagoRepository : IFormaPagoRepository
     {
-        private readonly soport43_minegociovillegasContext _context;
+        private readonly soport43_minegociocyjContext _context;
 
-        public FormaPagoRepository(soport43_minegociovillegasContext context)
+        public FormaPagoRepository(soport43_minegociocyjContext context)
         {
             _context = context;
         }

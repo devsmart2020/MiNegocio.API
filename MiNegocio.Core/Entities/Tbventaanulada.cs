@@ -13,6 +13,7 @@ namespace MiNegocio.Core.Entities
         public string IdProducto { get; set; }
         public int? CantidadServicio { get; set; }
         public int? CantidadProducto { get; set; }
+        public int TotalVenta { get; set; }
 
         public virtual Tbventa IdVentaNavigation { get; set; }
     }

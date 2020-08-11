@@ -10,9 +10,9 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
-        private readonly soport43_minegociovillegasContext _context;
+        private readonly soport43_minegociocyjContext _context;
 
-        public UsuarioRepository(soport43_minegociovillegasContext context)
+        public UsuarioRepository(soport43_minegociocyjContext context)
         {
             _context = context;
         }

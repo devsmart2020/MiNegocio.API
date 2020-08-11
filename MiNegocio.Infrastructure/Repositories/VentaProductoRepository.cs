@@ -10,9 +10,9 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class VentaProductoRepository : IVentaProductoRepository
     {
-        private readonly soport43_minegociovillegasContext _context;
+        private readonly soport43_minegociocyjContext _context;
 
-        public VentaProductoRepository(soport43_minegociovillegasContext context)
+        public VentaProductoRepository(soport43_minegociocyjContext context)
         {
             _context = context;
         }

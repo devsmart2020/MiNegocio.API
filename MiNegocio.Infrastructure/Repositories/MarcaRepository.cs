@@ -10,9 +10,9 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class MarcaRepository : IMarcaRepository
     {
-        private readonly soport43_minegociovillegasContext _context;
+        private readonly soport43_minegociocyjContext _context;
 
-        public MarcaRepository(soport43_minegociovillegasContext context)
+        public MarcaRepository(soport43_minegociocyjContext context)
         {
             _context = context;
         }

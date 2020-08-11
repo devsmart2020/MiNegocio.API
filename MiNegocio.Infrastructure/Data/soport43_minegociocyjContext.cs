@@ -3,13 +3,13 @@ using MiNegocio.Core.Entities;
 
 namespace MiNegocio.Infrastructure.Data
 {
-    public partial class soport43_minegociovillegasContext : DbContext
+    public partial class soport43_minegociocyjContext : DbContext
     {
-        public soport43_minegociovillegasContext()
+        public soport43_minegociocyjContext()
         {
         }
 
-        public soport43_minegociovillegasContext(DbContextOptions<soport43_minegociovillegasContext> options)
+        public soport43_minegociocyjContext(DbContextOptions<soport43_minegociocyjContext> options)
             : base(options)
         {
         }
@@ -45,10 +45,7 @@ namespace MiNegocio.Infrastructure.Data
         public virtual DbSet<Tbventaanulada> Tbventaanulada { get; set; }
         public virtual DbSet<Tbventaproducto> Tbventaproducto { get; set; }
         public virtual DbSet<Tbventaservicio> Tbventaservicio { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-        }
+      
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -1172,6 +1169,8 @@ namespace MiNegocio.Infrastructure.Data
                     .HasColumnType("varchar(2000)")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_unicode_ci");
+
+                entity.Property(e => e.TotalVenta).HasColumnType("int(11)");
 
                 entity.Property(e => e.Usuario)
                     .IsRequired()

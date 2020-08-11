@@ -11,9 +11,9 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class ReporteRepository : IReporteRepository
     {
-        private readonly soport43_minegociovillegasContext _context;
+        private readonly soport43_minegociocyjContext _context;
 
-        public ReporteRepository(soport43_minegociovillegasContext context)
+        public ReporteRepository(soport43_minegociocyjContext context)
         {
             _context = context;
         }

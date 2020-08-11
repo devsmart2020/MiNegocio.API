@@ -22,7 +22,7 @@ namespace MiNegocio.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<soport43_minegociovillegasContext>(options =>
+            services.AddDbContext<soport43_minegociocyjContext>(options =>
             options.UseMySql(Configuration.GetConnectionString("ConnectionMySqlCyj")));
             services.AddControllers();
 

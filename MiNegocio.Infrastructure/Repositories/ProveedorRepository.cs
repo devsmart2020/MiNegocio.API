@@ -9,9 +9,9 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class ProveedorRepository : IProveedorRepository
     {
-        private readonly soport43_minegociovillegasContext _context;
+        private readonly soport43_minegociocyjContext _context;
 
-        public ProveedorRepository(soport43_minegociovillegasContext context)
+        public ProveedorRepository(soport43_minegociocyjContext context)
         {
             _context = context;
         }

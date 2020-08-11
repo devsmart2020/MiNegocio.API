@@ -192,5 +192,27 @@ namespace MiNegocio.Api.Controllers
                 return BadRequest(null);
             }
         }
+
+        [HttpPost("AnularVenta")]
+        public async Task<ActionResult> AnularVenta(VentasDetalleRemisionVenta entity)
+        {
+            if (entity.IdVenta != default)
+            {
+                bool query = await _repository.AnularVenta(entity);
+                if (query)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return Conflict();
+                }
+
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
     }
 }
