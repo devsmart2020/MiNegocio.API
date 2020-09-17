@@ -9,6 +9,7 @@ namespace MiNegocio.Core.Entities
         {
             Tbproductoserial = new HashSet<Tbproductoserial>();
             Tbventaproducto = new HashSet<Tbventaproducto>();
+            Tbventaproductoanulada = new HashSet<Tbventaproductoanulada>();
         }
 
         public string IdProducto { get; set; }
@@ -28,5 +29,6 @@ namespace MiNegocio.Core.Entities
         public virtual Tbtipoproducto IdTipoProductoNavigation { get; set; }
         public virtual ICollection<Tbproductoserial> Tbproductoserial { get; set; }
         public virtual ICollection<Tbventaproducto> Tbventaproducto { get; set; }
+        public virtual ICollection<Tbventaproductoanulada> Tbventaproductoanulada { get; set; }
     }
 }

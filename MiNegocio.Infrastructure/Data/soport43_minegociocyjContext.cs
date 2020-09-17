@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using MiNegocio.Core.Entities;
 
 namespace MiNegocio.Infrastructure.Data
@@ -44,8 +46,9 @@ namespace MiNegocio.Infrastructure.Data
         public virtual DbSet<Tbventa> Tbventa { get; set; }
         public virtual DbSet<Tbventaanulada> Tbventaanulada { get; set; }
         public virtual DbSet<Tbventaproducto> Tbventaproducto { get; set; }
+        public virtual DbSet<Tbventaproductoanulada> Tbventaproductoanulada { get; set; }
         public virtual DbSet<Tbventaservicio> Tbventaservicio { get; set; }
-      
+    
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -1139,50 +1142,77 @@ namespace MiNegocio.Infrastructure.Data
 
             modelBuilder.Entity<Tbventaanulada>(entity =>
             {
-                entity.HasKey(e => e.Consecutivo)
+                entity.HasKey(e => e.IdVenta)
                     .HasName("PRIMARY");
 
                 entity.ToTable("tbventaanulada");
 
-                entity.HasIndex(e => e.IdVenta)
-                    .HasName("IdVEnta_UNIQUE")
-                    .IsUnique();
+                entity.HasIndex(e => e.IdCliente)
+                    .HasName("fk_TbVentaAnulada_TbCliente1_idx");
 
-                entity.Property(e => e.Consecutivo).HasColumnType("int(11)");
+                entity.HasIndex(e => e.IdFormaPago)
+                    .HasName("fk_TbVentaAnulada_TbFormaPago1_idx");
 
-                entity.Property(e => e.CantidadProducto).HasColumnType("int(11)");
+                entity.HasIndex(e => e.IdNegocio)
+                    .HasName("fk_TbVentaAnulada_TbNegocio1_idx");
 
-                entity.Property(e => e.CantidadServicio).HasColumnType("int(11)");
+                entity.HasIndex(e => e.IdUsuario)
+                    .HasName("fk_TbVentaAnulada_TbUsuario1_idx");
+
+                entity.Property(e => e.IdVenta).HasColumnType("int(11)");
 
                 entity.Property(e => e.Fecha).HasColumnType("datetime");
 
-                entity.Property(e => e.IdProducto)
+                entity.Property(e => e.IdCliente)
+                    .IsRequired()
+                    .HasColumnType("varchar(15)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_unicode_ci");
+
+                entity.Property(e => e.IdFormaPago).HasColumnType("int(11)");
+
+                entity.Property(e => e.IdNegocio)
+                    .IsRequired()
                     .HasColumnType("varchar(20)")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_unicode_ci");
 
-                entity.Property(e => e.IdServicio).HasColumnType("int(11)");
+                entity.Property(e => e.IdOrden).HasColumnType("int(11)");
 
-                entity.Property(e => e.IdVenta).HasColumnType("int(11)");
+                entity.Property(e => e.IdUsuario)
+                    .IsRequired()
+                    .HasColumnType("varchar(15)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_unicode_ci");
 
                 entity.Property(e => e.Observaciones)
                     .HasColumnType("varchar(2000)")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_unicode_ci");
 
-                entity.Property(e => e.TotalVenta).HasColumnType("int(11)");
-
-                entity.Property(e => e.Usuario)
-                    .IsRequired()
-                    .HasColumnType("varchar(15)")
-                    .HasCharSet("utf8")
-                    .HasCollation("utf8_unicode_ci");
-
-                entity.HasOne(d => d.IdVentaNavigation)
-                    .WithOne(p => p.Tbventaanulada)
-                    .HasForeignKey<Tbventaanulada>(d => d.IdVenta)
+                entity.HasOne(d => d.IdClienteNavigation)
+                    .WithMany(p => p.Tbventaanulada)
+                    .HasForeignKey(d => d.IdCliente)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_TbVentaAnulada_TbVenta1");
+                    .HasConstraintName("fk_TbVentaAnulada_TbCliente1");
+
+                entity.HasOne(d => d.IdFormaPagoNavigation)
+                    .WithMany(p => p.Tbventaanulada)
+                    .HasForeignKey(d => d.IdFormaPago)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_TbVentaAnulada_TbFormaPago1");
+
+                entity.HasOne(d => d.IdNegocioNavigation)
+                    .WithMany(p => p.Tbventaanulada)
+                    .HasForeignKey(d => d.IdNegocio)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_TbVentaAnulada_TbNegocio1");
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany(p => p.Tbventaanulada)
+                    .HasForeignKey(d => d.IdUsuario)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_TbVentaAnulada_TbUsuario1");
             });
 
             modelBuilder.Entity<Tbventaproducto>(entity =>
@@ -1219,6 +1249,42 @@ namespace MiNegocio.Infrastructure.Data
                     .HasForeignKey(d => d.IdVenta)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_TbVentaProducto_TbVenta1");
+            });
+
+            modelBuilder.Entity<Tbventaproductoanulada>(entity =>
+            {
+                entity.HasKey(e => new { e.IdVenta, e.IdProducto })
+                    .HasName("PRIMARY");
+
+                entity.ToTable("tbventaproductoanulada");
+
+                entity.HasIndex(e => e.IdProducto)
+                    .HasName("fk_TbVentaProductoAnulada_TbProducto1_idx");
+
+                entity.Property(e => e.IdVenta).HasColumnType("int(11)");
+
+                entity.Property(e => e.IdProducto)
+                    .HasColumnType("varchar(36)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_unicode_ci");
+
+                entity.Property(e => e.Cantidad).HasColumnType("int(11)");
+
+                entity.Property(e => e.Descuento).HasColumnType("int(11)");
+
+                entity.Property(e => e.VlrProducto).HasColumnType("int(11)");
+
+                entity.HasOne(d => d.IdProductoNavigation)
+                    .WithMany(p => p.Tbventaproductoanulada)
+                    .HasForeignKey(d => d.IdProducto)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_TbVentaProductoAnulada_TbProducto1");
+
+                entity.HasOne(d => d.IdVentaNavigation)
+                    .WithMany(p => p.Tbventaproductoanulada)
+                    .HasForeignKey(d => d.IdVenta)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_TbVentaProductoAnulada_TbVentaAnulada1");
             });
 
             modelBuilder.Entity<Tbventaservicio>(entity =>

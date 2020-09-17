@@ -9,19 +9,22 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class ClienteRepository : IClienteRepository
     {
-        private readonly soport43_minegociocyjContext _context;
-        public ClienteRepository(soport43_minegociocyjContext context)
+        private readonly soport43_minegociocyjContext _contextcyj;
+
+     
+
+        public ClienteRepository(soport43_minegociocyjContext contextcyj)
         {
-            _context = context;
-        }
+            _contextcyj = contextcyj;
+        }      
 
         public async Task<bool> Delete(string id)
         {
-            var entity = await _context.Tbcliente.FindAsync(id);
+            var entity = await _contextcyj.Tbcliente.FindAsync(id);
             if (entity != null)
             {
-                _context.Tbcliente.Remove(entity);
-                await _context.SaveChangesAsync();
+                _contextcyj.Tbcliente.Remove(entity);
+                await _contextcyj.SaveChangesAsync();
                 return true;
             }
             else
@@ -32,19 +35,19 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<bool> Exists(string id)
         {
-            return await _context.Tbcliente.AnyAsync(x => x.DocId == id);
+            return await _contextcyj.Tbcliente.AnyAsync(x => x.DocId == id);
 
         }
 
         public async Task<IEnumerable<Tbcliente>> Get()
         {
-            var entities = await _context.Tbcliente.ToListAsync();
+            var entities = await _contextcyj.Tbcliente.ToListAsync();
             return entities;
         }
 
         public async Task<Tbcliente> GetById(string id)
         {
-            var entity = await _context.Tbcliente.FindAsync(id);
+            var entity = await _contextcyj.Tbcliente.FindAsync(id);
             if (entity != null)
             {
                 return entity;
@@ -57,8 +60,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbcliente> Post(Tbcliente entity)
         {
-            await _context.Tbcliente.AddAsync(entity);
-            var query = await _context.SaveChangesAsync();
+            await _contextcyj.Tbcliente.AddAsync(entity);
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;
@@ -71,8 +74,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbcliente> Put(string id, Tbcliente entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            var query = await _context.SaveChangesAsync();
+            _contextcyj.Entry(entity).State = EntityState.Modified;
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;

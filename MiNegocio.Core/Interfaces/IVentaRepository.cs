@@ -13,8 +13,7 @@ namespace MiNegocio.Core.Interfaces
         Task<Tbventa> GetById(int id);
         Task<Tbventa> Put(int id, Tbventa entity);
         Task<bool> Delete(int id);
-        Task<bool> Exists(int id);
-        Task<bool> AnularVenta(VentasDetalleRemisionVenta entity);
+        Task<bool> Exists(int id);   
         Task<IEnumerable<VentasPorCliente>> VentaPorCliente(VentasPorCliente entity);
         Task<IEnumerable<VentasxFecha>> VentasxFecha(DateTime fchaIni, DateTime fchaFin);
         Task<IEnumerable<VentasDetalleVentaxFecha>> DetalleVentaxFecha(DateTime fchaIni, DateTime fchaFin);

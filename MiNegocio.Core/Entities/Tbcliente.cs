@@ -10,6 +10,7 @@ namespace MiNegocio.Core.Entities
             Tbequipo = new HashSet<Tbequipo>();
             Tborden = new HashSet<Tborden>();
             Tbventa = new HashSet<Tbventa>();
+            Tbventaanulada = new HashSet<Tbventaanulada>();
         }
 
         public string DocId { get; set; }
@@ -26,5 +27,6 @@ namespace MiNegocio.Core.Entities
         public virtual ICollection<Tbequipo> Tbequipo { get; set; }
         public virtual ICollection<Tborden> Tborden { get; set; }
         public virtual ICollection<Tbventa> Tbventa { get; set; }
+        public virtual ICollection<Tbventaanulada> Tbventaanulada { get; set; }
     }
 }

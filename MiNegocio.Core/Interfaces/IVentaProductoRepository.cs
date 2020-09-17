@@ -12,5 +12,6 @@ namespace MiNegocio.Core.Interfaces
         Task<Tbventaproducto> Put(int id, Tbventaproducto entity);
         Task<bool> Delete(int id);
         Task<bool> Exists(int id);
+        Task<int> CantidadEquiposEnDetalle(Tbventaanulada tbventaanulada);
     }
 }

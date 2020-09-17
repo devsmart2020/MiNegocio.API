@@ -3,33 +3,34 @@ using MiNegocio.Core.Entities;
 using MiNegocio.Core.Interfaces;
 using MiNegocio.Infrastructure.Data;
 using System.Collections.Generic;
-using System.IO.Compression;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace MiNegocio.Infrastructure.Repositories
 {
     public class ProductoSerialRepository : IProductoSerialRepository
     {
-        private readonly soport43_minegociocyjContext _context;
+        private readonly soport43_minegociocyjContext _contextcyj;
 
-        public ProductoSerialRepository(soport43_minegociocyjContext context)
+      
+
+        public ProductoSerialRepository(soport43_minegociocyjContext contextcyj)
         {
-            _context = context;
+            _contextcyj = contextcyj;
         }
+       
 
         public async Task<bool> Delete(List<string> id)
         {
             bool retorno = false;
             foreach (var item in id)
             {
-                var entity = await _context.Tbproductoserial
+                var entity = await _contextcyj.Tbproductoserial
               .FindAsync(item);
                 if (entity != null)
                 {
-                    _context.Tbproductoserial.Remove(entity);
-                    var query = await _context.SaveChangesAsync();
+                    _contextcyj.Tbproductoserial.Remove(entity);
+                    var query = await _contextcyj.SaveChangesAsync();
                     if (query > 0)
                     {
                         retorno = true;
@@ -51,8 +52,8 @@ namespace MiNegocio.Infrastructure.Repositories
                 
             //    if (entity != null)
             //    {
-            //        _context.Tbproductoserial.Remove(entity);
-            //        var query = await _context.SaveChangesAsync();
+            //        _contextcyj.Tbproductoserial.Remove(entity);
+            //        var query = await _contextcyj.SaveChangesAsync();
             //        if (query > 0)
             //        {
             //            retorno =  true;
@@ -74,18 +75,18 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<bool> Exists(string id)
         {
-            return await _context.Tbproductoserial.AnyAsync(x => x.Serie1 == id);
+            return await _contextcyj.Tbproductoserial.AnyAsync(x => x.Serie1 == id);
         }
 
         public async Task<IEnumerable<Tbproductoserial>> Get()
         {
-            var entities = await _context.Tbproductoserial.ToListAsync();
+            var entities = await _contextcyj.Tbproductoserial.ToListAsync();
             return entities;
         }
 
         public async Task<Tbproductoserial> GetById(string id)
         {
-            var entity = await _context.Tbproductoserial
+            var entity = await _contextcyj.Tbproductoserial
                 .Where(x => x.Serie1 == id || x.Serie2 == id)
                 .FirstOrDefaultAsync();
             if (entity != null)
@@ -100,15 +101,15 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<IEnumerable<Tbproductoserial>> GetListById(string id)
         {
-            return await _context.Tbproductoserial
+            return await _contextcyj.Tbproductoserial
                 .Where(x => x.IdProducto == id)
                 .ToListAsync();
         }
 
         public async Task<Tbproductoserial> Post(Tbproductoserial entity)
         {
-            await _context.Tbproductoserial.AddAsync(entity);
-            var query = await _context.SaveChangesAsync();
+            await _contextcyj.Tbproductoserial.AddAsync(entity);
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;
@@ -123,9 +124,9 @@ namespace MiNegocio.Infrastructure.Repositories
         {
             if (entitiesList.Count > 0)
             {
-                await _context.Tbproductoserial.AddRangeAsync(entitiesList);
+                await _contextcyj.Tbproductoserial.AddRangeAsync(entitiesList);
                
-                var query = await _context.SaveChangesAsync();       
+                var query = await _contextcyj.SaveChangesAsync();       
          
                 if (query > 0)
                 {
@@ -144,8 +145,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbproductoserial> Put(string id, Tbproductoserial entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            var query = await _context.SaveChangesAsync();
+            _contextcyj.Entry(entity).State = EntityState.Modified;
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;

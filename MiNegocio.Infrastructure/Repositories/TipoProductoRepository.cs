@@ -9,20 +9,22 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class TipoProductoRepository : ITipoProductoRepository
     {
-        private readonly soport43_minegociocyjContext _context;
+        private readonly soport43_minegociocyjContext _contextcyj;
+      
 
-        public TipoProductoRepository(soport43_minegociocyjContext context)
+        public TipoProductoRepository(soport43_minegociocyjContext contextcyj)
         {
-            _context = context;
+            _contextcyj = contextcyj;
         }
+       
 
         public async Task<bool> Delete(int id)
         {
-            var entity = await _context.Tbtipoproducto.FindAsync(id);
+            var entity = await _contextcyj.Tbtipoproducto.FindAsync(id);
             if (entity != null)
             {
-                _context.Tbtipoproducto.Remove(entity);
-                await _context.SaveChangesAsync();
+                _contextcyj.Tbtipoproducto.Remove(entity);
+                await _contextcyj.SaveChangesAsync();
                 return true;
             }
             else
@@ -33,19 +35,19 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<bool> Exists(int id)
         {
-            return await _context.Tbtipoproducto.AnyAsync(x => x.IdTipoProducto == id);
+            return await _contextcyj.Tbtipoproducto.AnyAsync(x => x.IdTipoProducto == id);
 
         }
 
         public async Task<IEnumerable<Tbtipoproducto>> Get()
         {
-             var entities = await _context.Tbtipoproducto.ToListAsync();
+             var entities = await _contextcyj.Tbtipoproducto.ToListAsync();
             return entities;
         }
 
         public async Task<Tbtipoproducto> GetById(int id)
         {
-            var entity = await _context.Tbtipoproducto.FindAsync(id);
+            var entity = await _contextcyj.Tbtipoproducto.FindAsync(id);
             if (entity != null)
             {
                 return entity;
@@ -58,8 +60,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbtipoproducto> Post(Tbtipoproducto entity)
         {
-            await _context.Tbtipoproducto.AddAsync(entity);
-            var query = await _context.SaveChangesAsync();
+            await _contextcyj.Tbtipoproducto.AddAsync(entity);
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;
@@ -72,7 +74,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbtipoproducto> Put(int id, Tbtipoproducto entity)
         {
-            var query = await _context.SaveChangesAsync();
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;

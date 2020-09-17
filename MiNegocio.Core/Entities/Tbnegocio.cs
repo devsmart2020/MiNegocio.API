@@ -7,6 +7,7 @@ namespace MiNegocio.Core.Entities
         public Tbnegocio()
         {
             Tbventa = new HashSet<Tbventa>();
+            Tbventaanulada = new HashSet<Tbventaanulada>();
         }
 
         public string Nit { get; set; }
@@ -28,5 +29,6 @@ namespace MiNegocio.Core.Entities
         public sbyte Estado { get; set; }
 
         public virtual ICollection<Tbventa> Tbventa { get; set; }
+        public virtual ICollection<Tbventaanulada> Tbventaanulada { get; set; }
     }
 }

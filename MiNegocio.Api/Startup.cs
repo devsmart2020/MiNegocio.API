@@ -22,9 +22,9 @@ namespace MiNegocio.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<soport43_minegociocyjContext>(options =>
-            options.UseMySql(Configuration.GetConnectionString("ConnectionMySqlCyj")));
             services.AddControllers();
+            services.AddDbContext<soport43_minegociocyjContext>(options =>
+            options.UseMySql(Configuration.GetConnectionString("ConnectionPrueba")));            
 
             //Resolver Dependencias
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
@@ -45,6 +45,8 @@ namespace MiNegocio.Api
             services.AddTransient<IReporteRepository, ReporteRepository>();
             services.AddTransient<ITipoReporteRepository, TipoReporteRepository>();
             services.AddTransient<ICreditoRepository, CreditoRepository>();
+            services.AddTransient<IVentaAnulada, VentaAnuladaRepository>();
+            services.AddTransient<IVentaProductoAnulada, VentaProductoAnuladaRepository>();
 
         }
 

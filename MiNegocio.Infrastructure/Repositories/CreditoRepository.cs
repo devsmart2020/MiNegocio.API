@@ -12,12 +12,15 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class CreditoRepository : ICreditoRepository
     {
-        private readonly soport43_minegociocyjContext _context;
+        private readonly soport43_minegociocyjContext _contextcyj;
 
-        public CreditoRepository(soport43_minegociocyjContext context)
+     
+
+        public CreditoRepository(soport43_minegociocyjContext contextcyj)
         {
-            _context = context;
+            _contextcyj = contextcyj;
         }
+       
 
         public Task<bool> Delete(int id)
         {
@@ -26,7 +29,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<IEnumerable<Tbcredito>> Get()
         {
-            var entities = await _context.Tbcredito.ToListAsync();
+            var entities = await _contextcyj.Tbcredito.ToListAsync();
             return entities;
         }
 
@@ -37,7 +40,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<IEnumerable<CreditoClienteCartera>> GetCreditoClientes()
         {
-            IEnumerable<CreditoClienteCartera> creditoClientes = await _context.Tbcredito
+            IEnumerable<CreditoClienteCartera> creditoClientes = await _contextcyj.Tbcredito
                 .Select(x => new CreditoClienteCartera()
                 {
                     IdVenta = x.IdVenta,
@@ -53,8 +56,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbcredito> Post(Tbcredito entity)
         {
-            await _context.Tbcredito.AddAsync(entity);
-            var query = await _context.SaveChangesAsync();
+            await _contextcyj.Tbcredito.AddAsync(entity);
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;

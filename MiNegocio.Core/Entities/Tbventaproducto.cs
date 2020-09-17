@@ -1,4 +1,5 @@
-﻿namespace MiNegocio.Core.Entities
+﻿
+namespace MiNegocio.Core.Entities
 {
     public partial class Tbventaproducto
     {
@@ -7,6 +8,8 @@
         public int Cantidad { get; set; }
         public int VlrProducto { get; set; }
         public int Descuento { get; set; }
+        public string Serial1 { get; set; }
+        public string Serial2 { get; set; }
 
         public virtual Tbproducto IdProductoNavigation { get; set; }
         public virtual Tbventa IdVentaNavigation { get; set; }

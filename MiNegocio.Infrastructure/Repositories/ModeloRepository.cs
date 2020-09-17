@@ -4,34 +4,33 @@ using MiNegocio.Core.Interfaces;
 using MiNegocio.Infrastructure.Data;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace MiNegocio.Infrastructure.Repositories
 {
     public class ModeloRepository : IModeloRepository
     {
-        private readonly soport43_minegociocyjContext _context;
+        private readonly soport43_minegociocyjContext _contextcyj;      
 
-        public ModeloRepository(soport43_minegociocyjContext context)
+        public ModeloRepository(soport43_minegociocyjContext contextcyj)
         {
-            _context = context;
-        }
+            _contextcyj = contextcyj;
+        }       
 
         public async Task<List<Tbmodelo>> Combo(int idMarca, int idTipoEquipo)
         {
             List<Tbmodelo> tbmodelos = new List<Tbmodelo>();
-            tbmodelos = await _context.Tbmodelo.Where(x => x.Marca == idMarca && x.TipoEquipo == idTipoEquipo).ToListAsync();
+            tbmodelos = await _contextcyj.Tbmodelo.Where(x => x.Marca == idMarca && x.TipoEquipo == idTipoEquipo).ToListAsync();
             return tbmodelos;
         }
 
         public async Task<bool> Delete(int id)
         {
-            var entity = await _context.Tbmodelo.FindAsync(id);
+            var entity = await _contextcyj.Tbmodelo.FindAsync(id);
             if (entity != null)
             {
-                _context.Tbmodelo.Remove(entity);
-                await _context.SaveChangesAsync();
+                _contextcyj.Tbmodelo.Remove(entity);
+                await _contextcyj.SaveChangesAsync();
                 return true;
             }
             else
@@ -42,18 +41,18 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<bool> Exists(int id)
         {
-            return await _context.Tbmodelo.AnyAsync(x => x.IdModelo == id);
+            return await _contextcyj.Tbmodelo.AnyAsync(x => x.IdModelo == id);
         }
 
         public async Task<IEnumerable<Tbmodelo>> Get()
         {
-            var entities = await _context.Tbmodelo.ToListAsync();
+            var entities = await _contextcyj.Tbmodelo.ToListAsync();
             return entities;
         }
 
         public async Task<Tbmodelo> GetById(int id)
         {
-            var entity = await _context.Tbmodelo.FindAsync(id);
+            var entity = await _contextcyj.Tbmodelo.FindAsync(id);
             if (entity != null)
             {
                 return entity;
@@ -66,8 +65,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbmodelo> Post(Tbmodelo entity)
         {
-            await _context.Tbmodelo.AddAsync(entity);
-            var query = await _context.SaveChangesAsync();
+            await _contextcyj.Tbmodelo.AddAsync(entity);
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;
@@ -80,7 +79,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbmodelo> Put(int id, Tbmodelo entity)
         {
-            var query = await _context.SaveChangesAsync();
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;

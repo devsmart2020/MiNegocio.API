@@ -2,7 +2,6 @@
 using MiNegocio.Core.Entities;
 using MiNegocio.Core.Interfaces;
 using MiNegocio.Infrastructure.Data;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -10,19 +9,22 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class TipoEquipoRepository : ITipoEquipoRepository
     {
-        private readonly soport43_minegociocyjContext _context;
+        private readonly soport43_minegociocyjContext _contextcyj;
 
-        public TipoEquipoRepository(soport43_minegociocyjContext context)
+       
+
+        public TipoEquipoRepository(soport43_minegociocyjContext contextcyj)
         {
-            _context = context;
+            _contextcyj = contextcyj;
         }
+       
         public async Task<bool> Delete(int id)
         {
-            var entity = await _context.Tbtipoequipo.FindAsync(id);
+            var entity = await _contextcyj.Tbtipoequipo.FindAsync(id);
             if (entity != null)
             {
-                _context.Tbtipoequipo.Remove(entity);
-                await _context.SaveChangesAsync();
+                _contextcyj.Tbtipoequipo.Remove(entity);
+                await _contextcyj.SaveChangesAsync();
                 return true;
             }
             else
@@ -33,18 +35,18 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<bool> Exists(int id)
         {
-            return await _context.Tbtipoequipo.AnyAsync(x => x.IdTipoEquipo == id);
+            return await _contextcyj.Tbtipoequipo.AnyAsync(x => x.IdTipoEquipo == id);
         }
 
         public async Task<IEnumerable<Tbtipoequipo>> Get()
         {
-            var entities = await _context.Tbtipoequipo.ToListAsync();
+            var entities = await _contextcyj.Tbtipoequipo.ToListAsync();
             return entities;
         }
 
         public async Task<Tbtipoequipo> GetById(int id)
         {
-            var entity = await _context.Tbtipoequipo.FindAsync(id);
+            var entity = await _contextcyj.Tbtipoequipo.FindAsync(id);
             if (entity != null)
             {
                 return entity;
@@ -57,8 +59,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbtipoequipo> Post(Tbtipoequipo entity)
         {
-            await _context.Tbtipoequipo.AddAsync(entity);
-            var query = await _context.SaveChangesAsync();
+            await _contextcyj.Tbtipoequipo.AddAsync(entity);
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;
@@ -71,7 +73,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbtipoequipo> Put(int id, Tbtipoequipo entity)
         {
-            var query = await _context.SaveChangesAsync();
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;

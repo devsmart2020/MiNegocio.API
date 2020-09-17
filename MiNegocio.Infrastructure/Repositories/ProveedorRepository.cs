@@ -9,20 +9,22 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class ProveedorRepository : IProveedorRepository
     {
-        private readonly soport43_minegociocyjContext _context;
+        private readonly soport43_minegociocyjContext _contextcyj;       
 
-        public ProveedorRepository(soport43_minegociocyjContext context)
+        public ProveedorRepository(soport43_minegociocyjContext contextcyj)
         {
-            _context = context;
+            _contextcyj = contextcyj;
         }
+
+       
 
         public async Task<bool> Delete(string id)
         {
-            var entity = await _context.Tbproveedor.FindAsync(id);
+            var entity = await _contextcyj.Tbproveedor.FindAsync(id);
             if (entity != null)
             {
-                _context.Tbproveedor.Remove(entity);
-                await _context.SaveChangesAsync();
+                _contextcyj.Tbproveedor.Remove(entity);
+                await _contextcyj.SaveChangesAsync();
                 return true;
             }
             else
@@ -33,18 +35,18 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<bool> Exists(string id)
         {
-            return await _context.Tbproveedor.AnyAsync(x => x.IdProveedor == id);
+            return await _contextcyj.Tbproveedor.AnyAsync(x => x.IdProveedor == id);
         }
 
         public async Task<IEnumerable<Tbproveedor>> Get()
         {
-            var entities = await _context.Tbproveedor.ToListAsync();
+            var entities = await _contextcyj.Tbproveedor.ToListAsync();
             return entities;
         }
 
         public async Task<Tbproveedor> GetById(string id)
         {
-            var entity = await _context.Tbproveedor.FindAsync(id);
+            var entity = await _contextcyj.Tbproveedor.FindAsync(id);
             if (entity != null)
             {
                 return entity;
@@ -57,8 +59,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbproveedor> Post(Tbproveedor entity)
         {
-            await _context.Tbproveedor.AddAsync(entity);
-            var query = await _context.SaveChangesAsync();
+            await _contextcyj.Tbproveedor.AddAsync(entity);
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;
@@ -71,8 +73,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbproveedor> Put(string id, Tbproveedor entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            var query = await _context.SaveChangesAsync();
+            _contextcyj.Entry(entity).State = EntityState.Modified;
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;

@@ -9,20 +9,23 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class FormaPagoRepository : IFormaPagoRepository
     {
-        private readonly soport43_minegociocyjContext _context;
+        private readonly soport43_minegociocyjContext _contextcyj;
 
-        public FormaPagoRepository(soport43_minegociocyjContext context)
+      
+
+        public FormaPagoRepository(soport43_minegociocyjContext contextcyj)
         {
-            _context = context;
+            _contextcyj = contextcyj;
         }
 
+       
         public async Task<bool> Delete(int id)
         {
-            var entity = await _context.Tbformapago.FindAsync(id);
+            var entity = await _contextcyj.Tbformapago.FindAsync(id);
             if (entity != null)
             {
-                _context.Tbformapago.Remove(entity);
-                await _context.SaveChangesAsync();
+                _contextcyj.Tbformapago.Remove(entity);
+                await _contextcyj.SaveChangesAsync();
                 return true;
             }
             else
@@ -33,13 +36,13 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<IEnumerable<Tbformapago>> Get()
         {
-            var entities = await _context.Tbformapago.ToListAsync();
+            var entities = await _contextcyj.Tbformapago.ToListAsync();
             return entities;
         }
 
         public async Task<Tbformapago> GetById(int id)
         {
-            var entity = await _context.Tbformapago.FindAsync(id);
+            var entity = await _contextcyj.Tbformapago.FindAsync(id);
             if (entity != null)
             {
                 return entity;
@@ -52,8 +55,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbformapago> Post(Tbformapago entity)
         {
-            await _context.Tbformapago.AddAsync(entity);
-            var query = await _context.SaveChangesAsync();
+            await _contextcyj.Tbformapago.AddAsync(entity);
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;
@@ -66,7 +69,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbformapago> Put(int id, Tbformapago entity)
         {
-            var query = await _context.SaveChangesAsync();
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;

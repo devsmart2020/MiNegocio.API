@@ -10,20 +10,21 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
-        private readonly soport43_minegociocyjContext _context;
+        private readonly soport43_minegociocyjContext _contextcyj;
+      
 
-        public UsuarioRepository(soport43_minegociocyjContext context)
+        public UsuarioRepository(soport43_minegociocyjContext contextcyj)
         {
-            _context = context;
-        }
+            _contextcyj = contextcyj;
+        }       
 
         public async Task<bool> Delete(string idUsuario)
         {
-            var usuario = await _context.Tbusuario.FindAsync(idUsuario);
+            var usuario = await _contextcyj.Tbusuario.FindAsync(idUsuario);
             if (usuario != null)
             {
-                _context.Tbusuario.Remove(usuario);
-                await _context.SaveChangesAsync();
+                _contextcyj.Tbusuario.Remove(usuario);
+                await _contextcyj.SaveChangesAsync();
                 return true;
             }
             else
@@ -34,7 +35,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbusuario> GetById(string idUsuario)
         {
-            var usuario = await _context.Tbusuario.FindAsync(idUsuario);
+            var usuario = await _contextcyj.Tbusuario.FindAsync(idUsuario);
             if (usuario != null)
             {
                 return usuario;
@@ -47,14 +48,14 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<IEnumerable<Tbusuario>> Get()
         {
-            var usuarios = await _context.Tbusuario.ToListAsync();
+            var usuarios = await _contextcyj.Tbusuario.ToListAsync();
             return usuarios;
         }
 
         public async Task<Tbusuario> Post(Tbusuario usuario)
         {
-            await _context.Tbusuario.AddAsync(usuario);
-            var query = await _context.SaveChangesAsync();
+            await _contextcyj.Tbusuario.AddAsync(usuario);
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return usuario;
@@ -67,8 +68,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbusuario> Put(string idUsuario, Tbusuario usuario)
         {
-            _context.Entry(usuario).State = EntityState.Modified;
-            var query = await _context.SaveChangesAsync();
+            _contextcyj.Entry(usuario).State = EntityState.Modified;
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return usuario;
@@ -81,14 +82,14 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<bool> Exists(string idUsuario)
         {
-            return await _context.Tbusuario.AnyAsync(x => x.DocId == idUsuario);
+            return await _contextcyj.Tbusuario.AnyAsync(x => x.DocId == idUsuario);
         }
 
         public async Task<Tbusuario> Login(Tbusuario usuario)
         {
             if (usuario != null)
             {
-                Tbusuario model = await _context.Tbusuario
+                Tbusuario model = await _contextcyj.Tbusuario
                     .Where(x => x.User.Equals(usuario.User) && x.Pass.Equals(usuario.Pass))
                     .FirstOrDefaultAsync();
                 return model;

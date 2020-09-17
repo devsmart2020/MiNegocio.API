@@ -11,6 +11,7 @@ namespace MiNegocio.Core.Entities
             Tborden = new HashSet<Tborden>();
             Tbusuarioorden = new HashSet<Tbusuarioorden>();
             Tbventa = new HashSet<Tbventa>();
+            Tbventaanulada = new HashSet<Tbventaanulada>();
         }
 
         public string DocId { get; set; }
@@ -30,5 +31,6 @@ namespace MiNegocio.Core.Entities
         public virtual ICollection<Tborden> Tborden { get; set; }
         public virtual ICollection<Tbusuarioorden> Tbusuarioorden { get; set; }
         public virtual ICollection<Tbventa> Tbventa { get; set; }
+        public virtual ICollection<Tbventaanulada> Tbventaanulada { get; set; }
     }
 }

@@ -9,19 +9,23 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class EstadoCompraRepository : IEstadoCompraRepository
     {
-        private readonly soport43_minegociocyjContext _context;
+        private readonly soport43_minegociocyjContext _contextcyj;
 
-        public EstadoCompraRepository(soport43_minegociocyjContext context)
+       
+
+        public EstadoCompraRepository(soport43_minegociocyjContext contextcyj)
         {
-            _context = context;
+            _contextcyj = contextcyj;
         }
+
+       
         public async Task<bool> Delete(int id)
         {
-            var entity = await _context.Tbestadocompra.FindAsync(id);
+            var entity = await _contextcyj.Tbestadocompra.FindAsync(id);
             if (entity != null)
             {
-                _context.Tbestadocompra.Remove(entity);
-                await _context.SaveChangesAsync();
+                _contextcyj.Tbestadocompra.Remove(entity);
+                await _contextcyj.SaveChangesAsync();
                 return true;
             }
             else
@@ -32,13 +36,13 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<IEnumerable<Tbestadocompra>> Get()
         {
-            var entities = await _context.Tbestadocompra.ToListAsync();
+            var entities = await _contextcyj.Tbestadocompra.ToListAsync();
             return entities;
         }
 
         public async Task<Tbestadocompra> GetById(int id)
         {
-            var entity = await _context.Tbestadocompra.FindAsync(id);
+            var entity = await _contextcyj.Tbestadocompra.FindAsync(id);
             if (entity != null)
             {
                 return entity;
@@ -51,8 +55,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbestadocompra> Post(Tbestadocompra entity)
         {
-            await _context.Tbestadocompra.AddAsync(entity);
-            var query = await _context.SaveChangesAsync();
+            await _contextcyj.Tbestadocompra.AddAsync(entity);
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;
@@ -65,7 +69,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbestadocompra> Put(int id, Tbestadocompra entity)
         {
-            var query = await _context.SaveChangesAsync();
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;

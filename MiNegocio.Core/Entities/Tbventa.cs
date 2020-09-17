@@ -26,7 +26,6 @@ namespace MiNegocio.Core.Entities
         public virtual Tbnegocio IdNegocioNavigation { get; set; }
         public virtual Tborden IdOrdenNavigation { get; set; }
         public virtual Tbusuario IdUsuarioNavigation { get; set; }
-        public virtual Tbventaanulada Tbventaanulada { get; set; }
         public virtual ICollection<Tbcredito> Tbcredito { get; set; }
         public virtual ICollection<Tbventaproducto> Tbventaproducto { get; set; }
         public virtual ICollection<Tbventaservicio> Tbventaservicio { get; set; }

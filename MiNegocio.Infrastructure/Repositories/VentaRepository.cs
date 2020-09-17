@@ -13,19 +13,20 @@ namespace MiNegocio.Infrastructure.Repositories
 
     public class VentaRepository : IVentaRepository
     {
-        private readonly soport43_minegociocyjContext _context;
-
-        public VentaRepository(soport43_minegociocyjContext context)
+        private readonly soport43_minegociocyjContext _contextcyj;
+      
+        public VentaRepository(soport43_minegociocyjContext contextcyj)
         {
-            _context = context;
+            _contextcyj = contextcyj;
         }
+    
         public async Task<bool> Delete(int id)
         {
-            var entity = await _context.Tbventa.FindAsync(id);
+            var entity = await _contextcyj.Tbventa.FindAsync(id);
             if (entity != null)
             {
-                _context.Tbventa.Remove(entity);
-                await _context.SaveChangesAsync();
+                _contextcyj.Tbventa.Remove(entity);
+                await _contextcyj.SaveChangesAsync();
                 return true;
             }
             else
@@ -36,19 +37,19 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<bool> Exists(int id)
         {
-            return await _context.Tbventa.AnyAsync(x => x.IdVenta == id);
+            return await _contextcyj.Tbventa.AnyAsync(x => x.IdVenta == id);
 
         }
 
         public async Task<IEnumerable<Tbventa>> Get()
         {
-            var entities = await _context.Tbventa.ToListAsync();
+            var entities = await _contextcyj.Tbventa.ToListAsync();
             return entities;
         }
 
         public async Task<Tbventa> GetById(int id)
         {
-            var entity = await _context.Tbventa.FindAsync(id);
+            var entity = await _contextcyj.Tbventa.FindAsync(id);
             if (entity != null)
             {
                 return entity;
@@ -61,8 +62,9 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbventa> Post(Tbventa entity)
         {
-            await _context.Tbventa.AddAsync(entity);
-            var query = _context.SaveChanges();
+
+            await _contextcyj.Tbventa.AddAsync(entity);
+            var query = _contextcyj.SaveChanges();
             if (query > 0)
             {
                 return entity;
@@ -75,7 +77,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbventa> Put(int id, Tbventa entity)
         {
-            var query = await _context.SaveChangesAsync();
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;
@@ -88,7 +90,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<IEnumerable<VentasxFecha>> VentasxFecha(DateTime fchaIni, DateTime fchaFin)
         {
-            IEnumerable<VentasxFecha> venta = await _context.Tbventa
+            IEnumerable<VentasxFecha> venta = await _contextcyj.Tbventa
                 .Where(x => x.Fecha.Date >= fchaIni.Date && x.Fecha.Date <= fchaFin.Date)
                 .Select(x => new VentasxFecha()
                 {
@@ -108,7 +110,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<IEnumerable<VentasDetalleVentaxFecha>> DetalleVentaxFecha(DateTime fchaIni, DateTime fchaFin)
         {
-            IEnumerable<VentasDetalleVentaxFecha> ventaProducto = await _context.Tbventaproducto
+            IEnumerable<VentasDetalleVentaxFecha> ventaProducto = await _contextcyj.Tbventaproducto
                  .Where(x => x.IdVentaNavigation.Fecha.Date >= fchaIni.Date && x.IdVentaNavigation.Fecha.Date <= fchaFin.Date)
                  .Select(x => new VentasDetalleVentaxFecha()
                  {
@@ -140,7 +142,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<IEnumerable<VentasLiquidacionxFecha>> LiquidacionVentaxFecha(DateTime fchaIni, DateTime fchaFin)
         {
-            IEnumerable<VentasLiquidacionxFecha> liquidacionxFechas = await _context.Tbventaproducto
+            IEnumerable<VentasLiquidacionxFecha> liquidacionxFechas = await _contextcyj.Tbventaproducto
                 .Where(x => x.IdVentaNavigation.Fecha.Date >= fchaIni.Date && x.IdVentaNavigation.Fecha.Date <= fchaFin.Date)
                 .Select(x => new VentasLiquidacionxFecha()
                 {
@@ -174,7 +176,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<IEnumerable<VentasRemisionVenta>> RemisionVenta(VentasRemisionVenta entity)
         {
-            IEnumerable<VentasRemisionVenta> ventasRemision = await _context.Tbventa
+            IEnumerable<VentasRemisionVenta> ventasRemision = await _contextcyj.Tbventa
             .Where(x => x.IdVenta.Equals(entity.IdVenta))
             .Select(x => new VentasRemisionVenta()
             {
@@ -208,7 +210,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<IEnumerable<VentasDetalleRemisionVenta>> DetalleRemision(VentasDetalleRemisionVenta entity)
         {
-            IEnumerable<VentasDetalleRemisionVenta> ventasDetalles = await _context.Tbventaproducto
+            IEnumerable<VentasDetalleRemisionVenta> ventasDetalles = await _contextcyj.Tbventaproducto
                 .Where(x => x.IdVenta.Equals(entity.IdVenta))
                 .Select(x => new VentasDetalleRemisionVenta()
                 {
@@ -221,10 +223,9 @@ namespace MiNegocio.Infrastructure.Repositories
                 .ToListAsync();
             return ventasDetalles;
         }
-
         public async Task<IEnumerable<VentasPorCliente>> VentaPorCliente(VentasPorCliente entity)
         {
-            IEnumerable<VentasPorCliente> ventaCliente = await _context.Tbventa
+            IEnumerable<VentasPorCliente> ventaCliente = await _contextcyj.Tbventa
                 .Where(x => x.IdVenta.Equals(entity.Venta) || x.IdCliente.Equals(entity.IdCliente)
                 || x.IdClienteNavigation.Nombres.Equals(entity.Cliente) || x.Fecha.Date == entity.Fecha.Date)
                 .Select(x => new VentasPorCliente
@@ -243,88 +244,6 @@ namespace MiNegocio.Infrastructure.Repositories
                 }).ToListAsync();
             return ventaCliente;
         }
-
-        public async Task<bool> AnularVenta(VentasDetalleRemisionVenta entity)
-        {
-            //Guardar en TbVtaAnulada
-            IEnumerable<Tbventaproducto> tbventaproducto = await _context.Tbventaproducto
-                .Where(x => x.IdVenta.Equals(entity.IdVenta))
-                .ToListAsync();
-            //Tbventaanulada tbventaanulada = new Tbventaanulada()
-            //{
-            //    IdVenta = tbventaproducto.IdVenta,
-            //    Fecha = tbventaproducto.IdVentaNavigation.Fecha,
-            //    Usuario = tbventaproducto.IdVentaNavigation.IdUsuario,
-            //    Observaciones = tbventaproducto.IdVentaNavigation.Observaciones,
-            //    IdProducto = tbventaproducto.IdProducto,
-            //    CantidadProducto = tbventaproducto.Cantidad,
-            //    TotalVenta = (tbventaproducto.Cantidad * tbventaproducto.IdProductoNavigation.VlrVenta) - tbventaproducto.Descuento
-            //};
-            //await _context.AddAsync(tbventaanulada);
-            var query = await _context.SaveChangesAsync();
-            if (query > 0)
-            {
-                //Descontar producto Inventario
-                IEnumerable<Tbventaproducto> tbventaproductos = await _context.Tbventaproducto.
-                    Where(x => x.IdVenta.Equals(entity.IdVenta))
-                    .ToListAsync();
-                foreach (var item in tbventaproductos)
-                {
-                    Tbproducto entityProducto = await _context.Tbproducto.
-                        Where(x => x.IdProducto.Equals(item.IdProducto))
-                        .FirstOrDefaultAsync();
-                    if (entityProducto != null)
-                    {
-                        entityProducto.Existencia = entityProducto.Existencia + item.Cantidad;
-                    }
-                    else
-                    {
-                        //No hay producto
-                        return false;
-                    }
-                }
-                var updateProducto = await _context.SaveChangesAsync();
-                if (updateProducto > 0)
-                {
-                    //Elimina VentaProducto
-                    using (var context = new soport43_minegociocyjContext())
-                    {
-                        context.RemoveRange(tbventaproductos);
-                        await context.SaveChangesAsync();
-                    }
-                    //Elimina Venta
-                    using (var context = new soport43_minegociocyjContext())
-                    {
-                        Tbventa tbventa = await _context.Tbventa
-                            .Where(x => x.IdVenta.Equals(entity.IdVenta))
-                            .FirstOrDefaultAsync();
-                        context.Remove<Tbventa>(tbventa);
-                        var eliminaVenta = await context.SaveChangesAsync();
-                        if (eliminaVenta > 0)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
-                else
-                {
-                    return false;
-
-                    //No sumó producto al inventario
-                }
-            }
-            else
-            {
-                return false;
-                //No guardó ventaanulada
-            }
-
-
-
-        }
+       
     }
 }

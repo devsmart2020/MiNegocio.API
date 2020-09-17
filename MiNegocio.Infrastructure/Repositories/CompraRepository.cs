@@ -12,12 +12,16 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class CompraRepository : ICompraRepository
     {
-        private readonly soport43_minegociocyjContext _context;
+        private readonly soport43_minegociocyjContext _contextcyj;
 
-        public CompraRepository(soport43_minegociocyjContext context)
+       
+
+        public CompraRepository(soport43_minegociocyjContext contextcyj)
         {
-            _context = context;
+            _contextcyj = contextcyj;
         }
+        
+
         public Task<object> CompraProveedor(string idCliente)
         {
             throw new NotImplementedException();
@@ -30,11 +34,11 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<bool> Delete(int id)
         {
-            var entity = await _context.Tbcompra.FindAsync(id);
+            var entity = await _contextcyj.Tbcompra.FindAsync(id);
             if (entity != null)
             {
-                _context.Tbcompra.Remove(entity);
-                await _context.SaveChangesAsync();
+                _contextcyj.Tbcompra.Remove(entity);
+                await _contextcyj.SaveChangesAsync();
                 return true;
             }
             else
@@ -45,7 +49,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<IEnumerable<ComprasxFecha>> ComprasxFecha(DateTime fchaIni, DateTime fchaFin)
         {
-            IEnumerable<ComprasxFecha> comprasxFechas = await _context.Tbcompra
+            IEnumerable<ComprasxFecha> comprasxFechas = await _contextcyj.Tbcompra
                 .Select(x => new ComprasxFecha()
                 {
                     Nfactura = x.Nfactura,
@@ -65,19 +69,19 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<bool> Exists(int id)
         {
-            return await _context.Tbcompra.AnyAsync(x => x.IdCompra == id);
+            return await _contextcyj.Tbcompra.AnyAsync(x => x.IdCompra == id);
 
         }
 
         public async Task<IEnumerable<Tbcompra>> Get()
         {
-            var entities = await _context.Tbcompra.ToListAsync();
+            var entities = await _contextcyj.Tbcompra.ToListAsync();
             return entities;
         }
 
         public async Task<Tbcompra> GetById(int id)
         {
-            var entity = await _context.Tbcompra.FindAsync(id);
+            var entity = await _contextcyj.Tbcompra.FindAsync(id);
             if (entity != null)
             {
                 return entity;
@@ -90,8 +94,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbcompra> Post(Tbcompra entity)
         {
-            await _context.Tbcompra.AddAsync(entity);
-            var query = await _context.SaveChangesAsync();
+            await _contextcyj.Tbcompra.AddAsync(entity);
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;
@@ -104,7 +108,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbcompra> Put(int id, Tbcompra entity)
         {
-            var query = await _context.SaveChangesAsync();
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;

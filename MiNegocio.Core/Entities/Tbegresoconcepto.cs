@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace MiNegocio.Core.Entities
+﻿namespace MiNegocio.Core.Entities
 {
     public partial class Tbegresoconcepto
     {

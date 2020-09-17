@@ -47,7 +47,7 @@ namespace MiNegocio.Api.Controllers
         public async Task<ActionResult<Tbventa>> Post(Tbventa entity)
         {
             if (entity != null)
-            {              
+            {
                 Tbventa model = await _repository.Post(entity);
                 if (model != null)
                 {
@@ -192,27 +192,6 @@ namespace MiNegocio.Api.Controllers
                 return BadRequest(null);
             }
         }
-
-        [HttpPost("AnularVenta")]
-        public async Task<ActionResult> AnularVenta(VentasDetalleRemisionVenta entity)
-        {
-            if (entity.IdVenta != default)
-            {
-                bool query = await _repository.AnularVenta(entity);
-                if (query)
-                {
-                    return Ok();
-                }
-                else
-                {
-                    return Conflict();
-                }
-
-            }
-            else
-            {
-                return BadRequest();
-            }
-        }
+       
     }
 }

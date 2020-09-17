@@ -2,9 +2,7 @@
 using MiNegocio.Core.Entities;
 using MiNegocio.Core.Interfaces;
 using MiNegocio.Infrastructure.Data;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,19 +10,23 @@ namespace MiNegocio.Infrastructure.Repositories
 {
     public class EquipoRepository : IEquipoRepository
     {
-        private readonly soport43_minegociocyjContext _context;
+        private readonly soport43_minegociocyjContext _contextcyj;
 
-        public EquipoRepository(soport43_minegociocyjContext context)
+      
+
+        public EquipoRepository(soport43_minegociocyjContext contextcyj)
         {
-            _context = context;
+            _contextcyj = contextcyj;
         }
+
+      
         public async Task<bool> Delete(int id)
         {
-            var entity = await _context.Tbequipo.FindAsync(id);
+            var entity = await _contextcyj.Tbequipo.FindAsync(id);
             if (entity != null)
             {
-                _context.Tbequipo.Remove(entity);
-                await _context.SaveChangesAsync();
+                _contextcyj.Tbequipo.Remove(entity);
+                await _contextcyj.SaveChangesAsync();
                 return true;
             }
             else
@@ -35,9 +37,9 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<object> EquipoCliente(string idCliente)
         {
-            var query = await (from e in _context.Tbequipo
-                        join c in _context.Tbcliente on e.IdCliente equals c.DocId
-                        join m in _context.Tbmodelo on e.IdModelo equals m.IdModelo
+            var query = await (from e in _contextcyj.Tbequipo
+                        join c in _contextcyj.Tbcliente on e.IdCliente equals c.DocId
+                        join m in _contextcyj.Tbmodelo on e.IdModelo equals m.IdModelo
                         select new
                         {                            
                             Cliente = c.Nombres + " " + c.Apellidos,                            
@@ -59,19 +61,19 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<bool> Exists(int id)
         {
-            return await _context.Tbequipo.AnyAsync(x => x.IdModelo == id);
+            return await _contextcyj.Tbequipo.AnyAsync(x => x.IdModelo == id);
 
         }
 
         public async Task<IEnumerable<Tbequipo>> Get()
         {
-            var entities = await _context.Tbequipo.ToListAsync();
+            var entities = await _contextcyj.Tbequipo.ToListAsync();
             return entities;
         }
 
         public async Task<Tbequipo> GetById(int id)
         {
-            var entity = await _context.Tbequipo.FindAsync(id);
+            var entity = await _contextcyj.Tbequipo.FindAsync(id);
             if (entity != null)
             {
                 return entity;
@@ -84,8 +86,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbequipo> Post(Tbequipo entity)
         {
-            await _context.Tbequipo.AddAsync(entity);
-            var query = await _context.SaveChangesAsync();
+            await _contextcyj.Tbequipo.AddAsync(entity);
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;
@@ -98,7 +100,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbequipo> Put(int id, Tbequipo entity)
         {
-            var query = await _context.SaveChangesAsync();
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;

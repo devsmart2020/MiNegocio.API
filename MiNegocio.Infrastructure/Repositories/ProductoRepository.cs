@@ -6,25 +6,28 @@ using MiNegocio.Infrastructure.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace MiNegocio.Infrastructure.Repositories
 {
     public class ProductoRepository : IProductoRepository
     {
-        private readonly soport43_minegociocyjContext _context;
+        private readonly soport43_minegociocyjContext _contextcyj;
 
-        public ProductoRepository(soport43_minegociocyjContext context)
+      
+
+        public ProductoRepository(soport43_minegociocyjContext contextcyj)
         {
-            _context = context;
+            _contextcyj = contextcyj;
         }
+
+       
         public async Task<bool> Delete(string id)
         {
-            var entity = await _context.Tbproducto.FindAsync(id);
+            var entity = await _contextcyj.Tbproducto.FindAsync(id);
             if (entity != null)
             {
-                _context.Tbproducto.Remove(entity);
-                await _context.SaveChangesAsync();
+                _contextcyj.Tbproducto.Remove(entity);
+                await _contextcyj.SaveChangesAsync();
                 return true;
             }
             else
@@ -35,18 +38,18 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<bool> Exists(string id)
         {
-            return await _context.Tbproducto.AnyAsync(x => x.IdProducto == id);
+            return await _contextcyj.Tbproducto.AnyAsync(x => x.IdProducto == id);
         }
 
         public async Task<IEnumerable<Tbproducto>> Get()
         {
-            var entities = await _context.Tbproducto.ToListAsync();
+            var entities = await _contextcyj.Tbproducto.ToListAsync();
             return entities;
         }
 
         public async Task<Tbproducto> GetById(string id)
         {
-            var entity = await _context.Tbproducto.FindAsync(id);
+            var entity = await _contextcyj.Tbproducto.FindAsync(id);
             if (entity != null)
             {
                 return entity;
@@ -59,7 +62,7 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<IEnumerable<InventarioListatoReporte>> GetInventarioListado()
         {
-            IEnumerable<InventarioListatoReporte> inventarios = await _context.Tbproducto
+            IEnumerable<InventarioListatoReporte> inventarios = await _contextcyj.Tbproducto
                 .Select(x => new InventarioListatoReporte()
                 {
                     IdProducto = x.IdProducto,
@@ -81,8 +84,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbproducto> Post(Tbproducto entity)
         {          
-            await _context.Tbproducto.AddAsync(entity);
-            var query = await _context.SaveChangesAsync();
+            await _contextcyj.Tbproducto.AddAsync(entity);
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;
@@ -98,8 +101,8 @@ namespace MiNegocio.Infrastructure.Repositories
             if (entitiesList.Count > 0)
             {
                
-                await _context.Tbproducto.AddRangeAsync(entitiesList);               
-                var query = await _context.SaveChangesAsync();
+                await _contextcyj.Tbproducto.AddRangeAsync(entitiesList);               
+                var query = await _contextcyj.SaveChangesAsync();
                 //return true;
                 if (query > 0)
                 {
@@ -118,8 +121,8 @@ namespace MiNegocio.Infrastructure.Repositories
 
         public async Task<Tbproducto> Put(string id, Tbproducto entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            var query = await _context.SaveChangesAsync();
+            _contextcyj.Entry(entity).State = EntityState.Modified;
+            var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
                 return entity;
