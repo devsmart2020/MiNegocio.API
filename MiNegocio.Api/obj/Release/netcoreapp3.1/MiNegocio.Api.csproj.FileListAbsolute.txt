@@ -474,3 +474,14 @@ C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Release\netc
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Release\netcoreapp3.1\MiNegocio.Api.dll
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Release\netcoreapp3.1\MiNegocio.Api.pdb
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Release\netcoreapp3.1\MiNegocio.Api.genruntimeconfig.cache
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\cyjcomunicaciones - Web Deploy\profile.arm.json
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\villegasimportaciones - Web Deploy\profile.arm.json
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\MiNegocio.Api.Views.dll
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
