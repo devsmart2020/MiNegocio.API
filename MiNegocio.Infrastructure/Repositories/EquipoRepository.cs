@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MiNegocio.Core.Entities;
 using MiNegocio.Core.Interfaces;
+using MiNegocio.Core.ReportsEntities;
 using MiNegocio.Infrastructure.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,28 +37,26 @@ namespace MiNegocio.Infrastructure.Repositories
             }
         }
 
-        public async Task<object> EquipoCliente(string idCliente)
+        public async Task<IEnumerable<EquiposxCliente>> EquipoCliente(string idCliente)
         {
-            var query = await (from e in _contextcyj.Tbequipo
-                        join c in _contextcyj.Tbcliente on e.IdCliente equals c.DocId
-                        join m in _contextcyj.Tbmodelo on e.IdModelo equals m.IdModelo
-                        select new
-                        {                            
-                            Cliente = c.Nombres + " " + c.Apellidos,                            
-                            e.IdModeloNavigation.Modelo,
-                            e.Fecha,
-                            e.Observacion,
-                            e.IdEquipo,
-                            e.IdCliente,
-                            e.IdModelo,
-                            e.Serie,
-                            e.Imei1,
-                            e.Imei2,
-                            e.Color,
-                            e.IdModeloNavigation.TipoEquipoNavigation.TipoEquipo,                           
-                        }).ToListAsync();
-          
-            return query;
+            IEnumerable<EquiposxCliente> list = await _contextcyj.Tbequipo.Where(x => x.IdCliente == idCliente)
+                .Select(x => new EquiposxCliente()
+                {
+                    IdEquipo = x.IdEquipo,
+                    IdModelo = x.IdModelo,
+                    NomModelo = x.IdModeloNavigation.Modelo,
+                    Marca = x.IdModeloNavigation.MarcaNavigation.Marca,
+                    TipoEquipo = x.IdModeloNavigation.TipoEquipoNavigation.TipoEquipo,
+                    Serie = x.Serie,
+                    Imei1 = x.Imei1,
+                    Imei2 = x.Imei2,
+                    Color = x.Color,
+                    Fecha = x.Fecha,
+                    IdCliente = x.IdCliente,
+                    NomCliente = $"{x.IdClienteNavigation.Nombres} { x.IdClienteNavigation.Apellidos}",
+                    Observacion = x.Observacion
+                }).ToListAsync();   
+            return list;
         }
 
         public async Task<bool> Exists(int id)

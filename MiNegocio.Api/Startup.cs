@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MiNegocio.Core.Entities;
 using MiNegocio.Core.Interfaces;
 using MiNegocio.Infrastructure.Data;
 using MiNegocio.Infrastructure.Repositories;
@@ -24,7 +25,7 @@ namespace MiNegocio.Api
         {
             services.AddControllers();
             services.AddDbContext<soport43_minegociocyjContext>(options =>
-            options.UseMySql(Configuration.GetConnectionString("ConnectionServicel")));            
+            options.UseMySql(Configuration.GetConnectionString("ConnectionPrueba")));            
 
             //Resolver Dependencias
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
@@ -47,6 +48,7 @@ namespace MiNegocio.Api
             services.AddTransient<ICreditoRepository, CreditoRepository>();
             services.AddTransient<IVentaAnulada, VentaAnuladaRepository>();
             services.AddTransient<IVentaProductoAnulada, VentaProductoAnuladaRepository>();
+            services.AddTransient<IOrdenRepository<Tborden>, OrdenRepository>();
 
         }
 

@@ -1,4 +1,5 @@
 ﻿using MiNegocio.Core.Entities;
+using MiNegocio.Core.ReportsEntities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,6 +13,6 @@ namespace MiNegocio.Core.Interfaces
         Task<Tbequipo> Put(int id, Tbequipo entity);
         Task<bool> Delete(int id);
         Task<bool> Exists(int id);
-        Task<object> EquipoCliente(string idCliente);        
+        Task<IEnumerable<EquiposxCliente>> EquipoCliente(string idCliente);        
     }
 }

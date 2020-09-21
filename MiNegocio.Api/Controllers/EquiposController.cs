@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MiNegocio.Core.Entities;
 using MiNegocio.Core.Interfaces;
+using MiNegocio.Core.ReportsEntities;
 
 namespace MiNegocio.Api.Controllers
 {
@@ -102,7 +103,7 @@ namespace MiNegocio.Api.Controllers
             }
         }
         [HttpGet("equipoCliente/{idCliente}")]
-        public async Task<ActionResult<object>>EquipoCliente(string idCliente)
+        public async Task<ActionResult<IEnumerable<EquiposxCliente>>>EquipoCliente(string idCliente)
         {
             if (!string.IsNullOrEmpty(idCliente))
             {
