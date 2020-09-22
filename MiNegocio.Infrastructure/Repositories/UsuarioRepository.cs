@@ -99,5 +99,17 @@ namespace MiNegocio.Infrastructure.Repositories
                 return null;
             }            
         }
+
+        public async Task<IEnumerable<Tbusuario>> GetTecnicos()
+        {
+            return await _contextcyj.Tbusuario
+                .Where(x => x.IdPerfilNavigation.Perfil.Equals("TECNICO"))
+                .Select(x => new Tbusuario()
+                {
+                    DocId = x.DocId,
+                    Nombres = $"{x.Nombres} {x.Apellidos}"
+                })
+                .ToListAsync();
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace MiNegocio.Core.Interfaces
         Task<bool> Delete(string idUsuario);
         Task<bool> Exists(string idUsuario);
         Task<Tbusuario> Login(Tbusuario usuario);
+        Task<IEnumerable<Tbusuario>> GetTecnicos();
 
 
     }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MiNegocio.Core.Entities;
 using MiNegocio.Core.Interfaces;
+using MiNegocio.Core.ReportsEntities;
 using MiNegocio.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
@@ -35,23 +36,44 @@ namespace MiNegocio.Infrastructure.Repositories
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<bool> Post(Tborden entity)
+        public async Task<Tborden> Post(Tborden entity)
         {
             await _context.Tborden.AddAsync(entity);
             int query = await _context.SaveChangesAsync();
             if (query > 0)
             {
-                return true;
+                return entity;
             }
             else
             {
-                return false;
+                return null;
             }
         }
 
         public Task<bool> Put(Tborden entity)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<OrdenRemisionCliente> RemisionCliente(OrdenRemisionCliente entity)
+        {
+            return await _context.Tborden
+                .Where(x => x.IdOrden == entity.IdOrden)
+                .Select(x => new OrdenRemisionCliente()
+                {
+                    IdOrden = entity.IdOrden,
+                    FechaEntra = x.FechaEntra,
+                    IdCliente = x.IdCliente,
+                    NomCliente = $"{x.IdClienteNavigation.Nombres} {x.IdClienteNavigation.Apellidos}",
+                    NomEquipo = x.IdEquipoNavigation.IdModeloNavigation.Modelo,
+                    Marca = x.IdEquipoNavigation.IdModeloNavigation.MarcaNavigation.Marca,
+                    TipoEquipo = x.IdEquipoNavigation.IdModeloNavigation.TipoEquipoNavigation.TipoEquipo,
+                    MicroSd = x.MicroSd,
+                    Sim = x.Sim,
+                    DiagnosticoCliente = x.DiagnosticoCliente,
+                    DiagnosticoTecnico = x.DiagnosticoTecnico,
+                    NomUsuario = x.IdUsuarioNavigation.Nombres                
+                }).FirstOrDefaultAsync();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MiNegocio.Core.Entities;
 using MiNegocio.Core.Interfaces;
@@ -126,5 +128,19 @@ namespace MiNegocio.Api.Controllers
                 return BadRequest(null);
             }
        }
+
+        [HttpGet("Tecnicos")]
+        public async Task<ActionResult<IEnumerable<Tbusuario>>> GetTecnicos()
+        {
+            IEnumerable<Tbusuario> tecnicos = await _repository.GetTecnicos();
+            if (tecnicos.Count() > 0)
+            {
+                return Ok(tecnicos);
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
     }
 }
