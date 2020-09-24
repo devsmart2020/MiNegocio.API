@@ -65,6 +65,7 @@ namespace MiNegocio.Infrastructure.Repositories
                     IdOrden = entity.IdOrden,
                     FechaEntra = x.FechaEntra,
                     IdCliente = x.IdCliente,
+                    TelCliente = x.IdClienteNavigation.Telefono,
                     NomCliente = $"{x.IdClienteNavigation.Nombres} {x.IdClienteNavigation.Apellidos}",
                     NomEquipo = x.IdEquipoNavigation.IdModeloNavigation.Modelo,
                     Marca = x.IdEquipoNavigation.IdModeloNavigation.MarcaNavigation.Marca,

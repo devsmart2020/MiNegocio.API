@@ -26,7 +26,7 @@ namespace MiNegocio.Api.Controllers
             {
                 Tborden orden = await _repository.Post(entity);
                 if (orden != null)
-                {                    
+                {
                     return Ok(orden);
                 }
                 else
@@ -57,9 +57,31 @@ namespace MiNegocio.Api.Controllers
             }
             else
             {
-                return BadRequest();                 
+                return BadRequest();
             }
         }
+
+        [HttpPost("GetAll")] 
+        public async Task<ActionResult<IEnumerable<Tborden>>> GetOrdenes(Tborden entity)
+        {
+            if (entity.IdOrden != default)
+            {
+                IEnumerable<Tborden> ordenes = await _repository.Get(entity);
+                if (ordenes.Count() > 0)
+                {
+                    return Ok(ordenes);
+                }
+                else
+                {
+                    return NoContent();
+                }
+            }
+            else
+            {
+                return BadRequest();               
+            }
+        }
+
         
     }
 }

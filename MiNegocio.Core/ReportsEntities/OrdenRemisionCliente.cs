@@ -9,6 +9,7 @@ namespace MiNegocio.Core.ReportsEntities
         public DateTime FechaEntra { get; set; }       
         public string IdCliente { get; set; }
         public string NomCliente { get; set; }
+        public string TelCliente { get; set; }
         public int IdEquipo { get; set; }
         public string NomEquipo { get; set; }
         public string Marca { get; set; }
