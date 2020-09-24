@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MiNegocio.Core.Entities;
 using MiNegocio.Core.Interfaces;
@@ -39,12 +41,12 @@ namespace MiNegocio.Api.Controllers
         }
 
         [HttpPost("Remision")]
-        public async Task<ActionResult<OrdenRemisionCliente>> RemisionOrden(OrdenRemisionCliente entity)
+        public async Task<ActionResult<IEnumerable<OrdenRemisionCliente>>> RemisionOrden(OrdenRemisionCliente entity)
         {
             if (entity.IdOrden != default)
             {
-                OrdenRemisionCliente remisionCliente = await _repository.RemisionCliente(entity);
-                if (remisionCliente.IdOrden != default)
+                IEnumerable<OrdenRemisionCliente> remisionCliente = await _repository.RemisionCliente(entity);
+                if (remisionCliente.Count() > 0)
                 {
                     return Ok(remisionCliente);
                 }

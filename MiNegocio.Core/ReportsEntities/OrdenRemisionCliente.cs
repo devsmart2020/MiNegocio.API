@@ -4,6 +4,7 @@ namespace MiNegocio.Core.ReportsEntities
 {
     public class OrdenRemisionCliente
     {
+        //CLIENTE
         public int IdOrden { get; set; }
         public DateTime FechaEntra { get; set; }       
         public string IdCliente { get; set; }
@@ -20,7 +21,7 @@ namespace MiNegocio.Core.ReportsEntities
         public string IdUsuario { get; set; }
         public string NomUsuario { get; set; }
 
-        //Negocio      
+        //NEGOCIO  
         public string NitNegocio { get; set; }
         public string NombreNegocio { get; set; }
         public string DireccionNegocio { get; set; }
@@ -29,5 +30,7 @@ namespace MiNegocio.Core.ReportsEntities
         public string PermisoTic { get; set; }
         public string Responsabilidad { get; set; }
         public string Garantia { get; set; }
+
+        //EQUIPO
     }
 }

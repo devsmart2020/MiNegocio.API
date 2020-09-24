@@ -27,6 +27,9 @@ namespace MiNegocio.Core.Entities
         public string Serial { get; set; }
         public string CodRecuperacion { get; set; }
         public sbyte Estado { get; set; }
+        public string Responsabilidad { get; set; }
+        public string Garantia { get; set; }
+
 
         public virtual ICollection<Tbventa> Tbventa { get; set; }
         public virtual ICollection<Tbventaanulada> Tbventaanulada { get; set; }

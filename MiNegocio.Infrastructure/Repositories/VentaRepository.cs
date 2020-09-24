@@ -218,7 +218,7 @@ namespace MiNegocio.Infrastructure.Repositories
                     Producto = x.IdProductoNavigation.Producto,
                     Cantidad = x.Cantidad,
                     Descuento = x.Descuento,
-                    Total = (x.Cantidad * x.IdProductoNavigation.VlrVenta) - x.Descuento
+                    Total = (x.Cantidad * x.IdProductoNavigation.VlrVenta)
                 })
                 .ToListAsync();
             return ventasDetalles;

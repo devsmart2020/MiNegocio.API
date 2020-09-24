@@ -11,6 +11,6 @@ namespace MiNegocio.Core.Interfaces
         Task<T> Post(T entity);
         Task<bool> Put(T entity);
         Task<bool> Delete(T entity);
-        Task<OrdenRemisionCliente> RemisionCliente(OrdenRemisionCliente entity);
+        Task<IEnumerable<OrdenRemisionCliente>> RemisionCliente(OrdenRemisionCliente entity);
     }
 }

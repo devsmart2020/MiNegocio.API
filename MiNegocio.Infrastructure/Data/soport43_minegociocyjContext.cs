@@ -489,6 +489,11 @@ namespace MiNegocio.Infrastructure.Data
 
                 entity.Property(e => e.Estado).HasColumnType("tinyint(4)");
 
+                entity.Property(e => e.Garantia)
+                    .HasColumnType("varchar(2000)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_unicode_ci");
+
                 entity.Property(e => e.Hwid)
                     .IsRequired()
                     .HasColumnType("varchar(100)")
@@ -517,6 +522,11 @@ namespace MiNegocio.Infrastructure.Data
 
                 entity.Property(e => e.Regimen)
                     .HasColumnType("varchar(20)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_unicode_ci");
+
+                entity.Property(e => e.Responsabilidad)
+                    .HasColumnType("varchar(2000)")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_unicode_ci");
 

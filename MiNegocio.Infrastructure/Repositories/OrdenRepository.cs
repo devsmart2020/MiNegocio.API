@@ -55,8 +55,9 @@ namespace MiNegocio.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<OrdenRemisionCliente> RemisionCliente(OrdenRemisionCliente entity)
+        public async Task<IEnumerable<OrdenRemisionCliente>> RemisionCliente(OrdenRemisionCliente entity)
         {
+            Tbnegocio tbnegocio = await _context.Tbnegocio.FirstOrDefaultAsync();
             return await _context.Tborden
                 .Where(x => x.IdOrden == entity.IdOrden)
                 .Select(x => new OrdenRemisionCliente()
@@ -72,8 +73,14 @@ namespace MiNegocio.Infrastructure.Repositories
                     Sim = x.Sim,
                     DiagnosticoCliente = x.DiagnosticoCliente,
                     DiagnosticoTecnico = x.DiagnosticoTecnico,
-                    NomUsuario = x.IdUsuarioNavigation.Nombres                
-                }).FirstOrDefaultAsync();
+                    NomUsuario = x.IdUsuarioNavigation.Nombres,
+                    NombreNegocio = tbnegocio.Nombre,
+                    NitNegocio = tbnegocio.Nit,
+                    TelefonoNegocio = tbnegocio.Telefono,
+                    DireccionNegocio = tbnegocio.Direccion,     
+                    Garantia = tbnegocio.Garantia,
+                    Responsabilidad = tbnegocio.Responsabilidad
+                }).ToListAsync();
         }
     }
 }
