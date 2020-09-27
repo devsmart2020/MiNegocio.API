@@ -9082,23 +9082,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\devsm\\.nuget\\packages\\": {},
+    "C:\\Users\\Administrador\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\devsm\\Source\\Repos\\MiNegocio.API\\MiNegocio.Api\\MiNegocio.Api.csproj",
+      "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Api\\MiNegocio.Api.csproj",
       "projectName": "MiNegocio.Api",
-      "projectPath": "C:\\Users\\devsm\\Source\\Repos\\MiNegocio.API\\MiNegocio.Api\\MiNegocio.Api.csproj",
-      "packagesPath": "C:\\Users\\devsm\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\devsm\\Source\\Repos\\MiNegocio.API\\MiNegocio.Api\\obj\\",
+      "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Api\\MiNegocio.Api.csproj",
+      "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\devsm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -9112,11 +9112,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\devsm\\Source\\Repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj": {
-              "projectPath": "C:\\Users\\devsm\\Source\\Repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj"
+            "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj": {
+              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj"
             },
-            "C:\\Users\\devsm\\Source\\Repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\devsm\\Source\\Repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj"
+            "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj"
             }
           }
         }

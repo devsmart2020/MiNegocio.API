@@ -25,7 +25,7 @@ namespace MiNegocio.Api
         {
             services.AddControllers();
             services.AddDbContext<soport43_minegociocyjContext>(options =>
-            options.UseMySql(Configuration.GetConnectionString("ConnectionPrueba")));            
+            options.UseMySql(Configuration.GetConnectionString("ConnectionServicel")));            
 
             //Resolver Dependencias
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();

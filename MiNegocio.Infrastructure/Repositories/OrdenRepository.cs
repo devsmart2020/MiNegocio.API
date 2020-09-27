@@ -27,7 +27,7 @@ namespace MiNegocio.Infrastructure.Repositories
         public async Task<IEnumerable<Tborden>> Get(Tborden entity)
         {
             return await _context.Tborden
-                .Where(x => x.IdOrden == entity.IdOrden || x.IdCliente == x.IdCliente || x.FechaEntra.Date == entity.FechaEntra.Date)
+                .Where(x => entity.IdOrden == x.IdOrden || entity.IdCliente == x.IdCliente || entity.FechaEntra.Date == x.FechaEntra.Date)
                 .ToListAsync();
         }
         public async Task<Tborden> GetById(Tborden entity)
