@@ -487,3 +487,5 @@ C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.
 C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Properties\serviceDependencies.servicel - Web Deploy.json
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\servicel - Web Deploy\profile.arm.json
+C:\Users\devsm\Source\Repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Properties\serviceDependencies.servicel - Web Deploy.json
+C:\Users\devsm\Source\Repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\servicel - Web Deploy\profile.arm.json

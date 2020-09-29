@@ -43,19 +43,23 @@ namespace MiNegocio.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Tbproducto>> Post(Tbproducto entity)
         {
-            if (entity != null)
+            if (entity.IdModelo == 0)
             {
+                entity.IdModelo = null;
+            }
+            if (entity != null)
+            {                
                 if (await _repository.Exists(entity.IdProducto))
                 {
                     return Conflict(null);
                 }
                 else
                 {
+
                     Tbproducto model = await _repository.Post(entity);
                     if (model != null)
                     {
                         return CreatedAtAction("Get", new { id = entity.IdProducto }, entity);
-
                     }
                     else
                     {
