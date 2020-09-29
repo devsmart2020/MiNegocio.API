@@ -39,12 +39,11 @@ namespace MiNegocio.Infrastructure.Repositories
         public async Task<bool> Exists(string id)
         {
             return await _contextcyj.Tbproducto.AnyAsync(x => x.IdProducto == id);
-        }
+        }       
 
-        public async Task<IEnumerable<Tbproducto>> Get()
+        public async Task<IEnumerable<Tbproducto>> Get(Tbproducto entity)
         {
-            var entities = await _contextcyj.Tbproducto.ToListAsync();
-            return entities;
+            return await _contextcyj.Tbproducto.ToListAsync();
         }
 
         public async Task<Tbproducto> GetById(string id)
@@ -119,17 +118,17 @@ namespace MiNegocio.Infrastructure.Repositories
             }
         }
 
-        public async Task<Tbproducto> Put(string id, Tbproducto entity)
-        {
+        public async Task<bool> Put(Tbproducto entity)
+        {          
             _contextcyj.Entry(entity).State = EntityState.Modified;
             var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
-                return entity;
+                return true;
             }
             else
             {
-                return null;
+                return false;
             }
         }
     }

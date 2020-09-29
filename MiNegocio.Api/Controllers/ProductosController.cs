@@ -19,11 +19,18 @@ namespace MiNegocio.Api.Controllers
             _repository = repository;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        [HttpPost("GetAll")]
+        public async Task<ActionResult<IEnumerable<Tbproducto>>> GetAll(Tbproducto entity)
         {
-            var entities = await _repository.Get();
-            return Ok(entities);
+            IEnumerable<Tbproducto> tbproductos = await _repository.Get(entity);
+            if (tbproductos.Count() > 0)
+            {
+                return Ok(tbproductos);
+            }
+            else
+            {
+                return NoContent();
+            }
         }
 
         [HttpGet("{id}")]
@@ -101,25 +108,24 @@ namespace MiNegocio.Api.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult<Tbproducto>> Put(string id, Tbproducto entity)
+        [HttpPost("Update")]
+        public async Task<ActionResult> Put(Tbproducto entity)
         {
-            if (id != entity.IdProducto)
+            if (entity.IdProducto != default)
             {
-                return BadRequest();
-            }
-            else
-            {
-                Tbproducto model = await _repository.Put(id, entity);
-                if (model != null)
+                if (await _repository.Put(entity))
                 {
-                    return Ok(model);
+                    return Ok();
                 }
                 else
                 {
                     return NoContent();
                 }
             }
+            else
+            {
+                return BadRequest();
+            }         
         }
 
         [HttpDelete("{id}")]
