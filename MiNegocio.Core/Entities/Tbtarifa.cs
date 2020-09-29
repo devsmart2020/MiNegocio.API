@@ -1,5 +1,6 @@
-﻿namespace MiNegocio.Core.Entities
-{
+﻿
+namespace MiNegocio.Core.Entities
+{ 
     public partial class Tbtarifa
     {
         public int IdTarifa { get; set; }

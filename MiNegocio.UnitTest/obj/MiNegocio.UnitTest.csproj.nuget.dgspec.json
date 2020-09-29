@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj": {}
+    "C:\\Users\\john.tobon\\source\\repos\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj": {
+    "C:\\Users\\john.tobon\\source\\repos\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj",
+        "projectUniqueName": "C:\\Users\\john.tobon\\source\\repos\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj",
         "projectName": "MiNegocio.UnitTest",
-        "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj",
-        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.UnitTest\\obj\\",
+        "projectPath": "C:\\Users\\john.tobon\\source\\repos\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj",
+        "packagesPath": "C:\\Users\\john.tobon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\john.tobon\\source\\repos\\MiNegocio.API\\MiNegocio.UnitTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\john.tobon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],

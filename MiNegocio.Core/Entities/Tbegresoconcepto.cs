@@ -1,4 +1,5 @@
-﻿namespace MiNegocio.Core.Entities
+﻿
+namespace MiNegocio.Core.Entities
 {
     public partial class Tbegresoconcepto
     {

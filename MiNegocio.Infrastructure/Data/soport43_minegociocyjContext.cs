@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 using MiNegocio.Core.Entities;
 
 namespace MiNegocio.Infrastructure.Data
@@ -26,6 +24,7 @@ namespace MiNegocio.Infrastructure.Data
         public virtual DbSet<Tbestadocompra> Tbestadocompra { get; set; }
         public virtual DbSet<Tbestadoorden> Tbestadoorden { get; set; }
         public virtual DbSet<Tbformapago> Tbformapago { get; set; }
+        public virtual DbSet<Tbinventariofijo> Tbinventariofijo { get; set; }
         public virtual DbSet<Tbmarca> Tbmarca { get; set; }
         public virtual DbSet<Tbmodelo> Tbmodelo { get; set; }
         public virtual DbSet<Tbnegocio> Tbnegocio { get; set; }
@@ -48,7 +47,7 @@ namespace MiNegocio.Infrastructure.Data
         public virtual DbSet<Tbventaproducto> Tbventaproducto { get; set; }
         public virtual DbSet<Tbventaproductoanulada> Tbventaproductoanulada { get; set; }
         public virtual DbSet<Tbventaservicio> Tbventaservicio { get; set; }
-    
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -247,7 +246,8 @@ namespace MiNegocio.Infrastructure.Data
             modelBuilder.Entity<Tbegresoconcepto>(entity =>
             {
                 entity.HasKey(e => new { e.IdEgreso, e.IdConcepto })
-                    .HasName("PRIMARY");
+                    .HasName("PRIMARY")
+                    .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
 
                 entity.ToTable("tbegresoconcepto");
 
@@ -396,6 +396,36 @@ namespace MiNegocio.Infrastructure.Data
 
                 entity.Property(e => e.FormaPago)
                     .IsRequired()
+                    .HasColumnType("varchar(20)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_unicode_ci");
+            });
+
+            modelBuilder.Entity<Tbinventariofijo>(entity =>
+            {
+                entity.HasKey(e => e.IdProducto)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("tbinventariofijo");
+
+                entity.Property(e => e.IdProducto)
+                    .HasColumnType("varchar(20)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_unicode_ci");
+
+                entity.Property(e => e.Cantidad).HasColumnType("int(11)");
+
+                entity.Property(e => e.Costo).HasColumnType("int(11)");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasColumnType("varchar(90)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_unicode_ci");
+
+                entity.Property(e => e.Serial)
                     .HasColumnType("varchar(20)")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_unicode_ci");
@@ -1040,7 +1070,8 @@ namespace MiNegocio.Infrastructure.Data
             modelBuilder.Entity<Tbusuarioorden>(entity =>
             {
                 entity.HasKey(e => new { e.IdUsuario, e.IdOrden })
-                    .HasName("PRIMARY");
+                    .HasName("PRIMARY")
+                    .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
 
                 entity.ToTable("tbusuarioorden");
 
@@ -1228,12 +1259,21 @@ namespace MiNegocio.Infrastructure.Data
             modelBuilder.Entity<Tbventaproducto>(entity =>
             {
                 entity.HasKey(e => new { e.IdVenta, e.IdProducto })
-                    .HasName("PRIMARY");
+                    .HasName("PRIMARY")
+                    .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
 
                 entity.ToTable("tbventaproducto");
 
                 entity.HasIndex(e => e.IdProducto)
                     .HasName("fk_TbVentaProducto_TbProducto1_idx");
+
+                entity.HasIndex(e => e.Serial1)
+                    .HasName("Serial1_UNIQUE")
+                    .IsUnique();
+
+                entity.HasIndex(e => e.Serial2)
+                    .HasName("Serial2_UNIQUE")
+                    .IsUnique();
 
                 entity.Property(e => e.IdVenta).HasColumnType("int(11)");
 
@@ -1245,6 +1285,16 @@ namespace MiNegocio.Infrastructure.Data
                 entity.Property(e => e.Cantidad).HasColumnType("int(11)");
 
                 entity.Property(e => e.Descuento).HasColumnType("int(11)");
+
+                entity.Property(e => e.Serial1)
+                    .HasColumnType("varchar(20)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_unicode_ci");
+
+                entity.Property(e => e.Serial2)
+                    .HasColumnType("varchar(20)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_unicode_ci");
 
                 entity.Property(e => e.VlrProducto).HasColumnType("int(11)");
 
@@ -1264,7 +1314,8 @@ namespace MiNegocio.Infrastructure.Data
             modelBuilder.Entity<Tbventaproductoanulada>(entity =>
             {
                 entity.HasKey(e => new { e.IdVenta, e.IdProducto })
-                    .HasName("PRIMARY");
+                    .HasName("PRIMARY")
+                    .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
 
                 entity.ToTable("tbventaproductoanulada");
 
@@ -1281,6 +1332,16 @@ namespace MiNegocio.Infrastructure.Data
                 entity.Property(e => e.Cantidad).HasColumnType("int(11)");
 
                 entity.Property(e => e.Descuento).HasColumnType("int(11)");
+
+                entity.Property(e => e.Serial1)
+                    .HasColumnType("varchar(20)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_unicode_ci");
+
+                entity.Property(e => e.Serial2)
+                    .HasColumnType("varchar(20)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_unicode_ci");
 
                 entity.Property(e => e.VlrProducto).HasColumnType("int(11)");
 
@@ -1300,7 +1361,8 @@ namespace MiNegocio.Infrastructure.Data
             modelBuilder.Entity<Tbventaservicio>(entity =>
             {
                 entity.HasKey(e => new { e.IdVenta, e.IdServicio })
-                    .HasName("PRIMARY");
+                    .HasName("PRIMARY")
+                    .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
 
                 entity.ToTable("tbventaservicio");
 

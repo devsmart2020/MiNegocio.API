@@ -81,17 +81,17 @@ namespace MiNegocio.Infrastructure.Repositories
             return inventarios;
         }
 
-        public async Task<Tbproducto> Post(Tbproducto entity)
+        public async Task<bool> Post(Tbproducto entity)
         {          
             await _contextcyj.Tbproducto.AddAsync(entity);
             var query = await _contextcyj.SaveChangesAsync();
             if (query > 0)
             {
-                return entity;
+                return true;
             }
             else
             {
-                return null;
+                return false;
             }
         }
 

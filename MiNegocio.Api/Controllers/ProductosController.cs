@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MiNegocio.Core.Entities;
 using MiNegocio.Core.Interfaces;
 using MiNegocio.Core.ReportsEntities;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MiNegocio.Api.Controllers
 {
@@ -48,30 +48,21 @@ namespace MiNegocio.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Tbproducto>> Post(Tbproducto entity)
+        public async Task<ActionResult> Post(Tbproducto entity)
         {
             if (entity.IdModelo == 0)
             {
                 entity.IdModelo = null;
             }
             if (entity != null)
-            {                
-                if (await _repository.Exists(entity.IdProducto))
+            {
+                if (await _repository.Post(entity))
                 {
-                    return Conflict(null);
+                    return Ok();
                 }
                 else
                 {
-
-                    Tbproducto model = await _repository.Post(entity);
-                    if (model != null)
-                    {
-                        return CreatedAtAction("Get", new { id = entity.IdProducto }, entity);
-                    }
-                    else
-                    {
-                        return Conflict(null);
-                    }
+                    return Conflict();
                 }
             }
             else
@@ -125,7 +116,7 @@ namespace MiNegocio.Api.Controllers
             else
             {
                 return BadRequest();
-            }         
+            }
         }
 
         [HttpDelete("{id}")]
@@ -149,8 +140,8 @@ namespace MiNegocio.Api.Controllers
         }
 
         [HttpGet("Reportes/inventariolistado")]
-        public  async Task<ActionResult<IEnumerable<InventarioListatoReporte>>> GetInventarioListado()
-        {   
+        public async Task<ActionResult<IEnumerable<InventarioListatoReporte>>> GetInventarioListado()
+        {
             IEnumerable<InventarioListatoReporte> query = await _repository.GetInventarioListado();
             if (query.Any())
             {

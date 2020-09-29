@@ -30,7 +30,6 @@ namespace MiNegocio.Core.Entities
         public string Responsabilidad { get; set; }
         public string Garantia { get; set; }
 
-
         public virtual ICollection<Tbventa> Tbventa { get; set; }
         public virtual ICollection<Tbventaanulada> Tbventaanulada { get; set; }
     }
