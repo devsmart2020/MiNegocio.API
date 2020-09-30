@@ -50,6 +50,7 @@ namespace MiNegocio.Api
             services.AddTransient<IVentaProductoAnulada, VentaProductoAnuladaRepository>();
             services.AddTransient<IOrdenRepository<Tborden>, OrdenRepository>();
             services.AddTransient<IUsuarioOrden, UsuarioOrdenRepository>();
+            services.AddTransient<IInventarioFijoRepository, InventarioFijoRepository>();
 
         }
 

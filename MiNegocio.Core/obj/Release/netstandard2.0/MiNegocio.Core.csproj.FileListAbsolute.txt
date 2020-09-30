@@ -33,3 +33,4 @@ C:\Users\john.tobon\source\repos\MiNegocio.API\MiNegocio.Core\obj\Release\netsta
 C:\Users\john.tobon\source\repos\MiNegocio.API\MiNegocio.Core\obj\Release\netstandard2.0\MiNegocio.Core.dll
 C:\Users\john.tobon\source\repos\MiNegocio.API\MiNegocio.Core\obj\Release\netstandard2.0\MiNegocio.Core.pdb
 C:\Users\john.tobon\source\repos\MiNegocio.API\MiNegocio.Core\obj\Release\netstandard2.0\MiNegocio.Core.csprojAssemblyReference.cache
+C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Core\obj\Release\netstandard2.0\MiNegocio.Core.csprojAssemblyReference.cache

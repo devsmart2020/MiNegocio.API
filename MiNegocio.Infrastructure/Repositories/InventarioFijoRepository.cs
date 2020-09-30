@@ -1,8 +1,10 @@
-﻿using MiNegocio.Core.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using MiNegocio.Core.Entities;
 using MiNegocio.Core.Interfaces;
 using MiNegocio.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MiNegocio.Infrastructure.Repositories
@@ -26,9 +28,9 @@ namespace MiNegocio.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Tbinventariofijo>> GetAll(Tbinventariofijo entity)
+        public async Task<IEnumerable<Tbinventariofijo>> GetAll(Tbinventariofijo entity)
         {
-            throw new NotImplementedException();
+            return await _context.Tbinventariofijo.OrderBy(x => x.Fecha).ToListAsync();   
         }
 
         public async Task<bool> Post(Tbinventariofijo entity)
