@@ -103,7 +103,7 @@ namespace MiNegocio.Infrastructure.Repositories
                     FechaIni = fchaIni,
                     FechaFin = fchaFin
                 })
-                .OrderBy(x => x.Fecha)
+                .OrderBy(x => x.IdVenta)
                 .ToListAsync();
             return venta;
         }
@@ -127,7 +127,7 @@ namespace MiNegocio.Infrastructure.Repositories
                      FechaIni = fchaIni,
                      FechaFin = fchaFin
                  })
-                 .OrderBy(x => x.Fecha)
+                 .OrderBy(x => x.Factura)
                  .ToListAsync();
             foreach (var item in ventaProducto)
             {
@@ -161,7 +161,7 @@ namespace MiNegocio.Infrastructure.Repositories
                     TotalCosto = x.Cantidad * x.IdProductoNavigation.Costo,
                     TotalGanancia = (x.VlrProducto * x.Cantidad - x.Descuento) - (x.IdProductoNavigation.Costo * x.Cantidad)
                 })
-                .OrderBy(x => x.Fecha)
+                .OrderBy(x => x.Factura)
                 .ToListAsync();
             foreach (var item in liquidacionxFechas)
             {
