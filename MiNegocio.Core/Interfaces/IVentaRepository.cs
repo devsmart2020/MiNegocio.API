@@ -20,6 +20,7 @@ namespace MiNegocio.Core.Interfaces
         Task<IEnumerable<VentasLiquidacionxFecha>> LiquidacionVentaxFecha(DateTime fchaIni, DateTime fchaFin);
         Task<IEnumerable<VentasRemisionVenta>> RemisionVenta(VentasRemisionVenta entity);
         Task<IEnumerable<VentasDetalleRemisionVenta>> DetalleRemision(VentasDetalleRemisionVenta entity);
+        Task<IEnumerable<VentasxUsuario>> VentasxUsuarios(VentasxUsuario entity);
 
     }
 }

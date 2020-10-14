@@ -8,6 +8,8 @@ namespace MiNegocio.Core.ReportsEntities
         public string Documento { get; set; }
         public string Cliente { get; set; }
         public DateTime Fecha { get; set; }
+        public string IdProducto { get; set; }
+
         public string Producto { get; set; }
         public string FormaPago { get; set; }
         public int CostoProducto { get; set; }

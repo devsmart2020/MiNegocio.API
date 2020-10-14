@@ -36,6 +36,37 @@ namespace MiNegocio.Infrastructure.Repositories
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<IEnumerable<OrdenRemisionLocal>> OrdenLocal(OrdenRemisionLocal entity)
+        {
+            return await _context.Tborden
+                .Where(x => x.IdOrden == entity.IdOrden || x.IdCliente == entity.IdCliente || x.FechaEntra.Date == entity.FechaEntra.Date)
+                .Select(x => new OrdenRemisionLocal
+                {
+                    IdOrden = x.IdOrden,
+                    FechaEntra = x.FechaEntra,
+                    FechaRevision = x.FechaRevision,
+                    FechaSale = x.FechaSale,
+                    IdCliente = x.IdCliente,
+                    NomCliente = $"{x.IdClienteNavigation.Nombres} {x.IdClienteNavigation.Apellidos}",
+                    IdEquipo = x.IdEquipo,
+                    Marca = x.IdEquipoNavigation.IdModeloNavigation.MarcaNavigation.Marca,
+                    TipoEquipo = x.IdEquipoNavigation.IdModeloNavigation.TipoEquipoNavigation.TipoEquipo,
+                    Modelo = x.IdEquipoNavigation.IdModeloNavigation.Modelo,
+                    IdEstadoOrden = x.IdEstadoOrden,
+                    Estado = x.IdEstadoOrdenNavigation.EstadoOrden,
+                    MicroSd = x.MicroSd,
+                    Sim = x.Sim,
+                    DatosBloqueo = x.DatosBloqueo,
+                    DiagnosticoCliente = x.DiagnosticoCliente,
+                    DiagnosticoTecnico = x.DiagnosticoTecnico,
+                    Presupuesto = x.Presupuesto,
+                    Ubicacion = x.Ubicacion,
+                    IdTecnico = x.IdUsuario,
+                    Tecnico = x.IdUsuarioNavigation.Nombres
+                }).ToListAsync();
+
+        }
+
         public async Task<Tborden> Post(Tborden entity)
         {
             await _context.Tborden.AddAsync(entity);

@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore.Internal;
 using MiNegocio.Core.Entities;
 using MiNegocio.Core.Interfaces;
 using MiNegocio.Core.ReportsEntities;
-using SQLitePCL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -192,6 +191,27 @@ namespace MiNegocio.Api.Controllers
                 return BadRequest(null);
             }
         }
-       
+
+        [HttpPost("Reportes/ventasxusuario")]
+        public async Task<ActionResult<IEnumerable<VentasDetalleVentaxFecha>>> VentasxUsuario(VentasxUsuario entity)
+        {
+            if (entity != null)
+            {
+                IEnumerable<VentasxUsuario> ventasxUsuario = await _repository.VentasxUsuarios(entity);
+                if (ventasxUsuario.Any())
+                {
+                    return Ok(ventasxUsuario);
+                }
+                else
+                {
+                    return NoContent();
+                }
+            }
+            else
+            {
+                return BadRequest();
+            }          
+        }
+
     }
 }

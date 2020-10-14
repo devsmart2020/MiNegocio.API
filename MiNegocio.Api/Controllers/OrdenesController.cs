@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -79,6 +80,27 @@ namespace MiNegocio.Api.Controllers
             else
             {
                 return BadRequest();               
+            }
+        }
+
+        [HttpPost("OrdenLocal")]
+        public async Task<ActionResult<IEnumerable<OrdenRemisionLocal>>> GetOrdenLocal(OrdenRemisionLocal entity)
+        {
+            if (entity != null)
+            {
+                IEnumerable<OrdenRemisionLocal> remisionLocal = await _repository.OrdenLocal(entity);
+                if (remisionLocal.Any())
+                {
+                    return Ok(remisionLocal);
+                }
+                else
+                {
+                    return NoContent();
+                }
+            }
+            else
+            {
+                return BadRequest();
             }
         }
 

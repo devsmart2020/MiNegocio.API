@@ -1,4 +1,5 @@
 ﻿using MiNegocio.Core.ReportsEntities;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,5 +13,6 @@ namespace MiNegocio.Core.Interfaces
         Task<bool> Put(T entity);
         Task<bool> Delete(T entity);
         Task<IEnumerable<OrdenRemisionCliente>> RemisionCliente(OrdenRemisionCliente entity);
+        Task<IEnumerable<OrdenRemisionLocal>> OrdenLocal(OrdenRemisionLocal entity);
     }
 }

@@ -25,7 +25,7 @@ namespace MiNegocio.Api
         {
             services.AddControllers();
             services.AddDbContext<soport43_minegociocyjContext>(options =>
-            options.UseMySql(Configuration.GetConnectionString("ConnectionCyj")));            
+            options.UseMySql(Configuration.GetConnectionString("ConnectionPrueba")));            
 
             //Resolver Dependencias
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
@@ -52,6 +52,8 @@ namespace MiNegocio.Api
             services.AddTransient<IUsuarioOrden, UsuarioOrdenRepository>();
             services.AddTransient<IInventarioFijoRepository, InventarioFijoRepository>();
             services.AddTransient<INegocioRepository, NegocioRepository>();
+            services.AddTransient<IEstadoOrden, EstadoOrdenRepository>();
+            services.AddTransient<IVentaAnulada, VentaAnuladaRepository>();
 
         }
 

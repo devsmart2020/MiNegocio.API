@@ -14,12 +14,12 @@ namespace MiNegocio.Infrastructure.Repositories
     public class VentaRepository : IVentaRepository
     {
         private readonly soport43_minegociocyjContext _contextcyj;
-      
+
         public VentaRepository(soport43_minegociocyjContext contextcyj)
         {
             _contextcyj = contextcyj;
         }
-    
+
         public async Task<bool> Delete(int id)
         {
             var entity = await _contextcyj.Tbventa.FindAsync(id);
@@ -119,6 +119,7 @@ namespace MiNegocio.Infrastructure.Repositories
                      Cliente = x.IdVentaNavigation.IdClienteNavigation.Nombres + " " + x.IdVentaNavigation.IdClienteNavigation.Apellidos,
                      FormaPago = x.IdVentaNavigation.IdFormaPagoNavigation.FormaPago,
                      Fecha = x.IdVentaNavigation.Fecha,
+                     IdProducto = x.IdProducto,
                      Producto = x.IdProductoNavigation.Producto,
                      VlrCompra = (x.Cantidad * x.IdProductoNavigation.VlrVenta) - x.Descuento,
                      Cantidad = x.Cantidad,
@@ -148,6 +149,7 @@ namespace MiNegocio.Infrastructure.Repositories
                 {
                     Factura = x.IdVenta,
                     Fecha = x.IdVentaNavigation.Fecha,
+                    IdProducto = x.IdProducto,
                     Producto = x.IdProductoNavigation.Producto,
                     FormaPago = x.IdVentaNavigation.IdFormaPagoNavigation.FormaPago,
                     CostoProducto = x.IdProductoNavigation.Costo,
@@ -244,6 +246,41 @@ namespace MiNegocio.Infrastructure.Repositories
                 }).ToListAsync();
             return ventaCliente;
         }
-       
+
+        public async Task<IEnumerable<VentasxUsuario>> VentasxUsuarios(VentasxUsuario entity)
+        {
+            IEnumerable<VentasxUsuario> ventasxUsuarios = await _contextcyj.Tbventaproducto
+                 .Where(x => entity.IdUsuario == x.IdVentaNavigation.IdUsuario &&
+                  x.IdVentaNavigation.Fecha.Date >= entity.FechaIni.Date && x.IdVentaNavigation.Fecha.Date <= entity.FechaFin.Date)
+                 .Select(x => new VentasxUsuario()
+                 {
+                     Factura = x.IdVenta,
+                     Documento = x.IdVentaNavigation.IdCliente,
+                     Cliente = x.IdVentaNavigation.IdClienteNavigation.Nombres + " " + x.IdVentaNavigation.IdClienteNavigation.Apellidos,
+                     FormaPago = x.IdVentaNavigation.IdFormaPagoNavigation.FormaPago,
+                     Fecha = x.IdVentaNavigation.Fecha,
+                     IdProducto = x.IdProducto,
+                     Producto = x.IdProductoNavigation.Producto,
+                     VlrCompra = (x.Cantidad * x.IdProductoNavigation.VlrVenta) - x.Descuento,
+                     Cantidad = x.Cantidad,
+                     Descuento = x.Descuento,
+                     Total = (x.Cantidad * x.IdProductoNavigation.VlrVenta) - x.Descuento,
+                     FechaIni = entity.FechaIni,
+                     FechaFin = entity.FechaFin,
+                     IdUsuario = x.IdVentaNavigation.IdUsuario,
+                     Usuario = $"{x.IdVentaNavigation.IdUsuarioNavigation.Nombres} {x.IdVentaNavigation.IdUsuarioNavigation.Apellidos}"
+                 })
+                 .OrderBy(x => x.Factura)
+                 .ToListAsync();
+            foreach (var item in ventasxUsuarios)
+            {
+                if (item.FormaPago == "CRÉDITO")
+                {
+                    item.Total = 0;
+
+                }
+            }
+            return ventasxUsuarios;
+        }
     }
 }
