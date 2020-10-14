@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiNegocio.Api", "MiNegocio.Api\MiNegocio.Api.csproj", "{CF6993A4-D159-4F98-A32D-9A76C31EC80D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiNegocio.Api", "MiNegocio.Api\MiNegocio.Api.csproj", "{CF6993A4-D159-4F98-A32D-9A76C31EC80D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiNegocio.Core", "MiNegocio.Core\MiNegocio.Core.csproj", "{2E99A9DF-B433-49E1-BFF4-4563A703D7C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiNegocio.Core", "MiNegocio.Core\MiNegocio.Core.csproj", "{2E99A9DF-B433-49E1-BFF4-4563A703D7C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiNegocio.Infrastructure", "MiNegocio.Infrastructure\MiNegocio.Infrastructure.csproj", "{839FCC94-633F-4842-B84C-CA168BF2BA5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiNegocio.Infrastructure", "MiNegocio.Infrastructure\MiNegocio.Infrastructure.csproj", "{839FCC94-633F-4842-B84C-CA168BF2BA5E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0250686D-8207-4793-A487-5652690F06BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiNegocio.UnitTest", "MiNegocio.UnitTest\MiNegocio.UnitTest.csproj", "{B8DEF0D0-C2D7-41F1-ACC0-9CD5FFA8D34B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiNegocio.UnitTest", "MiNegocio.UnitTest\MiNegocio.UnitTest.csproj", "{B8DEF0D0-C2D7-41F1-ACC0-9CD5FFA8D34B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiNegocio.IntegrationTest", "MiNegocio.IntegrationTest\MiNegocio.IntegrationTest.csproj", "{7A60F725-276B-4884-9217-AD4AC63477F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiNegocio.IntegrationTest", "MiNegocio.IntegrationTest\MiNegocio.IntegrationTest.csproj", "{7A60F725-276B-4884-9217-AD4AC63477F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
