@@ -31,7 +31,7 @@ namespace MiNegocio.Api.Controllers
         }
 
         [HttpPost("AnulaVenta")]
-        public async Task<ActionResult<bool>> AnularVenta(Tbventaanulada entity)
+        public async Task<ActionResult> AnularVenta(Tbventaanulada entity)
         {
             if (entity.IdVenta != default)
             {

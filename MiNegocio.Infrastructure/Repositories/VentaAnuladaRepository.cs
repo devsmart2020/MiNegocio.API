@@ -4,7 +4,6 @@ using MiNegocio.Core.Interfaces;
 using MiNegocio.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,7 +13,7 @@ namespace MiNegocio.Infrastructure.Repositories
     {
 
         private readonly soport43_minegociocyjContext _contextcyj;
-        private readonly VentaProductoAnuladaRepository _ventaProductoAnulada;
+        private ProductoSerialRepository _productoSerial;
         private ProductoRepository _productoRepository;
 
 
@@ -22,7 +21,7 @@ namespace MiNegocio.Infrastructure.Repositories
         public VentaAnuladaRepository(soport43_minegociocyjContext contextcyj)
         {
             _contextcyj = contextcyj;
-            _ventaProductoAnulada = new VentaProductoAnuladaRepository(_contextcyj);
+            _productoSerial = new ProductoSerialRepository(contextcyj);
             _productoRepository = new ProductoRepository(contextcyj);
 
         }
@@ -46,12 +45,15 @@ namespace MiNegocio.Infrastructure.Repositories
         public async Task<bool> Post(Tbventaanulada entity)
         {
             bool returnValue = false;
-
             //Consultamos Venta
             Tbventa tbventa = await _contextcyj.Tbventa
                 .Where(x => x.IdVenta.Equals(entity.IdVenta))
                 .FirstOrDefaultAsync();
-            //VentaAnulada
+            //Consultamos DetalleVenta
+            List<Tbventaproducto> detalleVenta = await _contextcyj.Tbventaproducto
+               .Where(x => x.IdVenta.Equals(tbventa.IdVenta))
+                   .ToListAsync();
+            //Asignamos VentaAnulada
             Tbventaanulada tbventaanulada = new Tbventaanulada()
             {
                 IdVenta = tbventa.IdVenta,
@@ -63,136 +65,118 @@ namespace MiNegocio.Infrastructure.Repositories
                 IdNegocio = tbventa.IdNegocio,
                 Observaciones = tbventa.Observaciones
             };
-            //Consultamos DetalleVenta
-            List<Tbventaproducto> detalleVenta = await _contextcyj.Tbventaproducto
-               .Where(x => x.IdVenta.Equals(tbventaanulada.IdVenta))
-                   .ToListAsync();
-            if (detalleVenta.Count > 0)
+            //Guardamos VentaAnulada
+            await _contextcyj.AddAsync(tbventaanulada);
+            var queryVtaAnuluada = await _contextcyj.SaveChangesAsync();
+            if (queryVtaAnuluada > 0)
             {
-                List<Tbventaproductoanulada> vtaProdAnulada = new List<Tbventaproductoanulada>();
-                //Guardamos detalleAnulado TbVtaProdAnulada              
-                foreach (Tbventaproducto item in detalleVenta)
+                if (detalleVenta.Count > 0)
                 {
-                    vtaProdAnulada.Add(new Tbventaproductoanulada
+                    List<Tbventaproductoanulada> vtaProdAnulada = new List<Tbventaproductoanulada>();
+                    foreach (Tbventaproducto item in detalleVenta)
                     {
-                        IdVenta = item.IdVenta,
-                        IdProducto = item.IdProducto,
-                        Cantidad = item.Cantidad,
-                        VlrProducto = item.VlrProducto,
-                        Descuento = item.Descuento,
-                        Serial1 = item.Serial1,
-                        Serial2 = item.Serial2
-                    });
-                }
-                await _contextcyj.Tbventaproductoanulada.AddRangeAsync(vtaProdAnulada);
-                var dtlleVtaAnualadaQuery = await _contextcyj.SaveChangesAsync();
-                if (dtlleVtaAnualadaQuery > 0)
-                {
-                    //Modificamos existencias
-                    foreach (var item in vtaProdAnulada)
-                    {
-                        Tbproducto tbproducto = await _contextcyj.Tbproducto
-                            .Where(x => x.IdProducto == item.IdProducto)
-                            .FirstOrDefaultAsync();
-
-                    }
-                }
-
-
-                if (vtaProdAnulada.Count > 0)
-                {
-
-
-
-
-
-
-                    returnValue = true;
-                    //Modificamos existencias y guardamos VtaProductoAnulada         
-                    for (int i = 0; i < vtaProdAnulada.Count; i++)
-                    {
-                        Tbproducto tbproducto = await _productoRepository.GetById(vtaProdAnulada[i].IdProducto);                       
-                        //Descontar de inventario
-                        int cantidad = vtaProdAnulada[i].Cantidad;
-                        if (!string.IsNullOrEmpty(tbproducto.IdProducto))
+                        vtaProdAnulada.Add(new Tbventaproductoanulada
                         {
-                            tbproducto.Existencia = tbproducto.Existencia + cantidad;
-                            //var desccuenta = await _contextcyj.SaveChangesAsync();
-                            //if (desccuenta > 0)
-                            //{
-                            //    returnValue = true;
-                            //}
-                        }
-                        await _contextcyj.Tbventaproductoanulada.AddAsync(vtaProdAnulada[i]);
-                        //Tbproducto producto = await (from p in _contextcyj.Tbproducto
-                        //                             where p.IdProducto == vtaProdAnulada[i].IdProducto
-                        //                             select p).FirstOrDefaultAsync();
-                        //producto.Existencia = producto.Existencia - cantidad;
-                        //var descuenta = await _contextcyj.SaveChangesAsync();
+                            IdVenta = item.IdVenta,
+                            IdProducto = item.IdProducto,
+                            Cantidad = item.Cantidad,
+                            VlrProducto = item.VlrProducto,
+                            Descuento = item.Descuento,
+                            Serial1 = item.Serial1,
+                            Serial2 = item.Serial2
+                        });
                     }
-                    int VTaProdAnuladDctaQuery = await _contextcyj.SaveChangesAsync();
-                    if (VTaProdAnuladDctaQuery > 0)
+                    _contextcyj.Tbventaproductoanulada.AddRange(vtaProdAnulada); //Guardamos TbVtaProductoAnulada
+                    var dtlleVtaAnualadaQuery = _contextcyj.SaveChanges();
+                    if (dtlleVtaAnualadaQuery > 0)
                     {
-                        returnValue = true;
-                        //Eliminamos DetalleVenta
-                        _contextcyj.Tbventaproducto.RemoveRange(detalleVenta);
-                        var vtaProdElimina = await _contextcyj.SaveChangesAsync();
-                        if (vtaProdElimina > 0)
+                        if (vtaProdAnulada.Count > 0)
                         {
                             returnValue = true;
-                            //Guardamos VentaAnulada TbVentaAnulada
-                            await _contextcyj.Tbventaanulada.AddAsync(tbventaanulada);
-                            var saveVtaAnulada = _contextcyj.SaveChanges();
-                            if (saveVtaAnulada > 0)
+                            //Modificamos existencias
+                            Tbproducto tbproducto = new Tbproducto();
+                            for (int i = 0; i < vtaProdAnulada.Count; i++)
                             {
-                                returnValue = true;
-                                //Eliminamos Tbventa
-                                var vtaBorrar = await _contextcyj.Tbventa.FindAsync(tbventa.IdVenta);
-                                if (vtaBorrar != null)
+                                tbproducto = await _productoRepository.GetById(vtaProdAnulada[i].IdProducto);
+                                //Sumar al inventario
+                                int cantidad = vtaProdAnulada[i].Cantidad;
+                                if (tbproducto != null)
                                 {
-                                    returnValue = true;
-                                    _contextcyj.Tbventa.Remove(vtaBorrar);
-                                    var eliminaventa = await _contextcyj.SaveChangesAsync();
-                                    if (eliminaventa > 0)
+                                    tbproducto.Existencia += cantidad;
+                                    var desccuenta = await _contextcyj.SaveChangesAsync();
+                                    if (desccuenta > 0)
                                     {
                                         returnValue = true;
                                     }
-                                    else //No se borró Venta TbVenta
+                                    else // No se pudo Sumar al inventario
                                     {
                                         returnValue = false;
+                                        Msj = "No se sumó al inventario";
+                                        Console.WriteLine(Msj);
                                     }
                                 }
-                                else //NO se econtró Vta TbVenta
+                                else //No Se pudo consultar producto
                                 {
                                     returnValue = false;
+                                    Msj = "No se listó TbProducto";
+                                    Console.WriteLine(Msj);
                                 }
                             }
-                            else //NO Se guardó VtaAnulada
+
+                            //Eliminamos DetalleVenta
+                            _contextcyj.Tbventaproducto.RemoveRange(detalleVenta);
+                            var queryDtlleVentaEliminar = await _contextcyj.SaveChangesAsync();
+                            if (queryDtlleVentaEliminar > 0)
+                            {
+                                returnValue = true;
+                                //Eliminamos TbVenta
+                                _contextcyj.Tbventa.Remove(tbventa);
+                                var queryEliminaTbVenta = await _contextcyj.SaveChangesAsync();
+                                if (queryEliminaTbVenta > 0)
+                                {
+                                    returnValue = true;
+                                    //Verificar si es equipo ProductoSerial
+                                    IEnumerable<Tbproductoserial> productoserial = await _productoSerial.GetListById(tbproducto.IdProducto);
+                                    if (productoserial != null)
+                                    {
+
+                                    }
+                                }
+                                else //No se eliminó TbVenta
+                                {
+                                    returnValue = false;
+                                    Msj = "No se eliminó TbVenta";
+                                    Console.WriteLine(Msj);
+                                }
+                            }
+                            else //No se pudo eliminar DetalleVenta
                             {
                                 returnValue = false;
+                                Msj = "No se eliminó TbDetalleVenta";
+                                Console.WriteLine(Msj);
                             }
 
                         }
-                        else //No se Elimino VtaProducto
+                        else  //No se guardó VtaProductoAnulada
                         {
                             returnValue = false;
-
+                            Msj = "No se guardó VentaProductoAnulada";
+                            Console.WriteLine(Msj);
                         }
                     }
-                    else //No se guardo vtaProductoAnulada o descontó del inventario
+                    else //No se guardó DetalleVentaAnulada
                     {
                         returnValue = false;
+                        Msj = "No se guardó DetalleVentaAnulada";
+                        Console.WriteLine(Msj);
                     }
                 }
-                else //VtarodcutoAnuladaList Vacia
+                else // No se Listó vtaAnulada
                 {
                     returnValue = false;
-
+                    Msj = "No se listó TbVentaAnulada";
+                    Console.WriteLine(Msj);
                 }
-            }
-            else  //No DetalleVenta
-            {
-                returnValue = false;
             }
 
             return returnValue;
@@ -203,13 +187,6 @@ namespace MiNegocio.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-
-        private bool SavedVentaAnulada { get; set; } = false;
-        private bool SavedVentaProductoAnulada { get; set; } = false;
-        private bool NullDetalleVenta { get; set; } = false;
-        private bool NullTbProductos { get; set; } = false;
-        private bool NullTbProductoSerial { get; set; } = false;
-        private bool SavedTbProductoSerial { get; set; } = false;
-
+        public string Msj { get; set; }
     }
 }
