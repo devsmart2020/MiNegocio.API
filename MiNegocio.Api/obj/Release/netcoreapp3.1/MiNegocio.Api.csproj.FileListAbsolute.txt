@@ -662,3 +662,4 @@ C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Release\netc
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Release\netcoreapp3.1\MiNegocio.Api.dll
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Release\netcoreapp3.1\MiNegocio.Api.pdb
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Api\obj\Release\netcoreapp3.1\MiNegocio.Api.genruntimeconfig.cache
+C:\Users\devsm\source\repos\MiNegocio.API\MiNegocio.Api\bin\Release\netcoreapp3.1\Properties\serviceDependencies.xiaomistore - Web Deploy.json
