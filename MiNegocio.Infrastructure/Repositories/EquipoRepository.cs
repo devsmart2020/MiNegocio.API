@@ -55,7 +55,9 @@ namespace MiNegocio.Infrastructure.Repositories
                     IdCliente = x.IdCliente,
                     NomCliente = $"{x.IdClienteNavigation.Nombres} { x.IdClienteNavigation.Apellidos}",
                     Observacion = x.Observacion
-                }).ToListAsync();   
+                })
+                .OrderByDescending(x => x.IdEquipo)
+                .ToListAsync();   
             return list;
         }
 

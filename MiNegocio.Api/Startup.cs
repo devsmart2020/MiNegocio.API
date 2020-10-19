@@ -25,7 +25,7 @@ namespace MiNegocio.Api
         {
             services.AddControllers();
             services.AddDbContext<soport43_minegociocyjContext>(options =>
-            options.UseMySql(Configuration.GetConnectionString("xiaomistore")));            
+            options.UseMySql(Configuration.GetConnectionString("prueba")));            
 
             //Resolver Dependencias
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
@@ -54,6 +54,7 @@ namespace MiNegocio.Api
             services.AddTransient<INegocioRepository, NegocioRepository>();
             services.AddTransient<IEstadoOrden, EstadoOrdenRepository>();
             services.AddTransient<IVentaAnulada, VentaAnuladaRepository>();
+            services.AddTransient<IPerfilRepository, PerfilRepository>();
 
         }
 

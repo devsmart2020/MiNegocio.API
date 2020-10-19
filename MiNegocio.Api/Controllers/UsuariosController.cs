@@ -42,7 +42,7 @@ namespace MiNegocio.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Tbusuario>> Post(Tbusuario entity)
         {
-            if (entity.DocId != null)
+            if (entity != null && ModelState.IsValid)
             {
                 if (await _repository.Exists(entity.DocId))
                 {
