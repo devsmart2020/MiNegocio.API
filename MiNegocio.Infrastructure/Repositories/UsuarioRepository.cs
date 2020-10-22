@@ -11,20 +11,20 @@ namespace MiNegocio.Infrastructure.Repositories
     public class UsuarioRepository : IUsuarioRepository
     {
         private readonly soport43_minegociocyjContext _contextcyj;
-      
+
 
         public UsuarioRepository(soport43_minegociocyjContext contextcyj)
         {
             _contextcyj = contextcyj;
-        }       
+        }
 
-        public async Task<bool> Delete(string idUsuario)
+        public async Task<bool> Delete(Tbusuario entity)
         {
-            var usuario = await _contextcyj.Tbusuario.FindAsync(idUsuario);
-            if (usuario != null)
+            var usuario = await _contextcyj.Tbusuario.FindAsync(entity.DocId);
+            _contextcyj.Tbusuario.Remove(usuario);
+            int query = await _contextcyj.SaveChangesAsync();
+            if (query > 0)
             {
-                _contextcyj.Tbusuario.Remove(usuario);
-                await _contextcyj.SaveChangesAsync();
                 return true;
             }
             else
@@ -33,23 +33,25 @@ namespace MiNegocio.Infrastructure.Repositories
             }
         }
 
-        public async Task<Tbusuario> GetById(string idUsuario)
+        public async Task<Tbusuario> GetById(Tbusuario entity)
         {
-            var usuario = await _contextcyj.Tbusuario.FindAsync(idUsuario);
-            if (usuario != null)
-            {
-                return usuario;
-            }
-            else
-            {
-                return null;
-            }
+            return await _contextcyj.Tbusuario
+                .Where(x => x.DocId == entity.DocId && x.Estado == 1)
+                .FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<Tbusuario>> Get()
         {
-            var usuarios = await _contextcyj.Tbusuario.ToListAsync();
-            return usuarios;
+            return await _contextcyj.Tbusuario
+                .Where(x => x.IdPerfilNavigation.Perfil.Equals("VENDEDOR") || x.IdPerfilNavigation.Perfil.Equals("ADMINISTRADOR") && x.Estado == 1)
+                .Select(x => new Tbusuario
+                {
+                    DocId = x.DocId,
+                    Nombres = x.Nombres,
+
+                })
+                .OrderBy(x => x.Nombres)
+                .ToListAsync();
         }
 
         public async Task<Tbusuario> Post(Tbusuario usuario)
@@ -66,7 +68,7 @@ namespace MiNegocio.Infrastructure.Repositories
             }
         }
 
-        public async Task<Tbusuario> Put(string idUsuario, Tbusuario usuario)
+        public async Task<Tbusuario> Put(Tbusuario usuario)
         {
             _contextcyj.Entry(usuario).State = EntityState.Modified;
             var query = await _contextcyj.SaveChangesAsync();
@@ -90,14 +92,14 @@ namespace MiNegocio.Infrastructure.Repositories
             if (usuario != null)
             {
                 Tbusuario model = await _contextcyj.Tbusuario
-                    .Where(x => x.User.Equals(usuario.User) && x.Pass.Equals(usuario.Pass))
+                    .Where(x => x.User.Equals(usuario.User) && x.Pass.Equals(usuario.Pass) && x.Estado == 1)
                     .FirstOrDefaultAsync();
                 return model;
             }
             else
             {
                 return null;
-            }            
+            }
         }
 
         public async Task<IEnumerable<Tbusuario>> GetTecnicos()
@@ -111,5 +113,13 @@ namespace MiNegocio.Infrastructure.Repositories
                 })
                 .ToListAsync();
         }
+
+        public async Task<Tbusuario> GetByIdUser(Tbusuario entity)
+        {
+            return await _contextcyj.Tbusuario
+               .Where(x => x.User == entity.User)
+               .FirstOrDefaultAsync();
+        }
     }
 }
+

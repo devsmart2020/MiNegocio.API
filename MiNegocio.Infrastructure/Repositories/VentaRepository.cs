@@ -6,6 +6,7 @@ using MiNegocio.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace MiNegocio.Infrastructure.Repositories
@@ -250,8 +251,8 @@ namespace MiNegocio.Infrastructure.Repositories
         public async Task<IEnumerable<VentasxUsuario>> VentasxUsuarios(VentasxUsuario entity)
         {
             IEnumerable<VentasxUsuario> ventasxUsuarios = await _contextcyj.Tbventaproducto
-                 .Where(x => entity.IdUsuario == x.IdVentaNavigation.IdUsuario &&
-                  x.IdVentaNavigation.Fecha.Date >= entity.FechaIni.Date && x.IdVentaNavigation.Fecha.Date <= entity.FechaFin.Date)
+                 .Where(x => x.IdVentaNavigation.IdUsuario.Equals(entity.IdUsuario) 
+                 && x.IdVentaNavigation.Fecha.Date >= entity.FechaIni.Date && x.IdVentaNavigation.Fecha.Date <= entity.FechaFin.Date)
                  .Select(x => new VentasxUsuario()
                  {
                      Factura = x.IdVenta,
@@ -277,9 +278,9 @@ namespace MiNegocio.Infrastructure.Repositories
                 if (item.FormaPago == "CRÉDITO")
                 {
                     item.Total = 0;
-
                 }
             }
+
             return ventasxUsuarios;
         }
     }

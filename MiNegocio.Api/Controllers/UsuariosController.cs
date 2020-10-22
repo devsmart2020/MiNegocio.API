@@ -18,20 +18,57 @@ namespace MiNegocio.Api.Controllers
             _repository = repository;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        [HttpPost("GetUsers")]
+        public async Task<ActionResult<IEnumerable<Tbusuario>>> Get()
         {
-            var usuarios = await _repository.Get();
-            return Ok(usuarios);
+            IEnumerable<Tbusuario> usuarios = await _repository.Get();
+            if (usuarios.Any())
+            {
+                return Ok(usuarios);
+            }
+            else
+            {
+                return NotFound();
+            }
+            
         }
 
-        [HttpGet("{idUsuario}")]
-        public async Task<ActionResult<Tbusuario>> GetById(string idUsuario)
+        [HttpPost("GetById")]
+        public async Task<ActionResult<Tbusuario>> GetById(Tbusuario entity)
         {
-            var usuario = await _repository.GetById(idUsuario);
-            if (usuario != null)
+            if (!string.IsNullOrEmpty(entity.DocId))
             {
-                return Ok(usuario);
+                Tbusuario usuario = await _repository.GetById(entity);
+                if (usuario != null)
+                {
+                    return Ok(usuario);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+           
+        }
+        [HttpPost("GetByIdUser")]
+        public async Task<ActionResult<Tbusuario>> GetByIdUser(Tbusuario entity)
+        {
+            if (!string.IsNullOrEmpty(entity.User))
+            {
+                Tbusuario usuario = await _repository.GetByIdUser(entity);
+                if (usuario != null)
+                {
+                    return Ok(usuario);
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
             else
             {
@@ -51,7 +88,14 @@ namespace MiNegocio.Api.Controllers
                 else
                 {
                     Tbusuario usuario = await _repository.Post(entity);
-                    return CreatedAtAction("GetUsuarios", new { id = usuario.DocId }, usuario);
+                    if (usuario != null)
+                    {
+                        return Ok(usuario);
+                    }
+                    else
+                    {
+                        return Conflict();
+                    }
                 }
             }
             else
@@ -60,16 +104,16 @@ namespace MiNegocio.Api.Controllers
             }
         }
 
-        [HttpPut("{idUsuario}")]
-        public async Task<ActionResult<Tbusuario>> PutUsuario(string idUsuario, Tbusuario entity)
+        [HttpPut()]
+        public async Task<ActionResult<Tbusuario>> PutUsuario(Tbusuario entity)
         {
-            if (idUsuario != entity.DocId)
+            if (entity == null)
             {
                 return BadRequest();
             }
             else
             {
-                Tbusuario usuario = await _repository.Put(idUsuario, entity);
+                Tbusuario usuario = await _repository.Put(entity);
                 if (usuario != null)
                 {
                     return Ok(usuario);
@@ -81,12 +125,12 @@ namespace MiNegocio.Api.Controllers
             }
         }
 
-        [HttpDelete("{idUsuario}")]
-        public async Task<IActionResult> DeleteUsuario(string idUsuario)
+        [HttpDelete()]
+        public async Task<IActionResult> DeleteUsuario(Tbusuario entity)
         {
-            if (!string.IsNullOrEmpty(idUsuario))
+            if (entity != null)
             {
-                if (await _repository.Delete(idUsuario))
+                if (await _repository.Delete(entity))
                 {
                     return Ok();
                 }

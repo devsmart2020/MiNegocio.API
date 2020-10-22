@@ -8,9 +8,10 @@ namespace MiNegocio.Core.Interfaces
     {
         Task<IEnumerable<Tbusuario>> Get();
         Task<Tbusuario> Post(Tbusuario usuario);
-        Task<Tbusuario> GetById(string idUsuario);
-        Task<Tbusuario> Put(string idUsuario, Tbusuario usuario);
-        Task<bool> Delete(string idUsuario);
+        Task<Tbusuario> GetById(Tbusuario entity);
+        Task<Tbusuario> GetByIdUser(Tbusuario entity);
+        Task<Tbusuario> Put(Tbusuario usuario);
+        Task<bool> Delete(Tbusuario entity);
         Task<bool> Exists(string idUsuario);
         Task<Tbusuario> Login(Tbusuario usuario);
         Task<IEnumerable<Tbusuario>> GetTecnicos();
