@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EhUv38JqvG+kUlhy2e0c6fxGnx1L14N+vnSfyp0KYv5MoEjirHLnoz8lN5TZKuScnaL17u3+QOWwCJo8Fipbvg==",
+  "dgSpecHash": "NYg1lBPFaHi+sFUwlBDOdfIFkmbylrb3hLiMWLZP9btJnnaQ7ItRbcYM0vmcQDqAAE0TtM5uJQDEc0RLZphjYQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj",
+  "projectFilePath": "D:\\Proyectos\\MiNegocioV1\\MiNegocio.API\\MiNegocio.Infrastructure\\MiNegocio.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrador\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Administrador\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

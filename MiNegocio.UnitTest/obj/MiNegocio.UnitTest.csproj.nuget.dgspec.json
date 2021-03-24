@@ -1,23 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj": {}
+    "D:\\Proyectos\\MiNegocioV1\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj": {
+    "D:\\Proyectos\\MiNegocioV1\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj",
+        "projectUniqueName": "D:\\Proyectos\\MiNegocioV1\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj",
         "projectName": "MiNegocio.UnitTest",
-        "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj",
+        "projectPath": "D:\\Proyectos\\MiNegocioV1\\MiNegocio.API\\MiNegocio.UnitTest\\MiNegocio.UnitTest.csproj",
         "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.UnitTest\\obj\\",
+        "outputPath": "D:\\Proyectos\\MiNegocioV1\\MiNegocio.API\\MiNegocio.UnitTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -80,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

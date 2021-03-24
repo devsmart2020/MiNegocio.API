@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5WUe1S1LABnZJhFjmvz2JkFqdGohu5LZ6Wpoy8Cs/svnM+3ec1PniZlkZok5WHwOMOz98tK+iajehlHCWfjtTQ==",
+  "dgSpecHash": "F5mJj4j7XGPnDWq0x0gehKSx+qMAJsh8r7eD6n1UjUW3Dhl+XpClDJKsyazB2tZHdshXHPGvyP0cUrI5pjHtdg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj",
+  "projectFilePath": "D:\\Proyectos\\MiNegocioV1\\MiNegocio.API\\MiNegocio.Core\\MiNegocio.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrador\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Administrador\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"

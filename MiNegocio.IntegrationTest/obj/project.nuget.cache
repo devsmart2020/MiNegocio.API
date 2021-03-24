@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0UN+CxLFab04qf+40fCjD7/xv1UxmWTEQJIJNxOuz8MAjQn8u3z05dvSd2nk0rM9Gzod0A9IxeCWShNHYbp25A==",
+  "dgSpecHash": "GbeDnFV9SPRwWBszxmGiZqd6GA3LyHcahVEhmTTC+J7771rcf6SB5Ll6/CjKQV2+HRXlWSTTR8MAO6Bfw3fbKg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio.API\\MiNegocio.IntegrationTest\\MiNegocio.IntegrationTest.csproj",
+  "projectFilePath": "D:\\Proyectos\\MiNegocioV1\\MiNegocio.API\\MiNegocio.IntegrationTest\\MiNegocio.IntegrationTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrador\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
     "C:\\Users\\Administrador\\.nuget\\packages\\microsoft.codecoverage\\16.7.1\\microsoft.codecoverage.16.7.1.nupkg.sha512",

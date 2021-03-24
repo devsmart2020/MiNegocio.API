@@ -46,3 +46,15 @@ C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\R
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.csproj.CopyComplete
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.dll
 C:\Users\Administrador\source\repos\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.pdb
+D:\Proyectos\MiNegocioV1\MiNegocio.API\MiNegocio.Infrastructure\bin\Release\netstandard2.0\MiNegocio.Infrastructure.deps.json
+D:\Proyectos\MiNegocioV1\MiNegocio.API\MiNegocio.Infrastructure\bin\Release\netstandard2.0\MiNegocio.Infrastructure.dll
+D:\Proyectos\MiNegocioV1\MiNegocio.API\MiNegocio.Infrastructure\bin\Release\netstandard2.0\MiNegocio.Infrastructure.pdb
+D:\Proyectos\MiNegocioV1\MiNegocio.API\MiNegocio.Infrastructure\bin\Release\netstandard2.0\MiNegocio.Core.dll
+D:\Proyectos\MiNegocioV1\MiNegocio.API\MiNegocio.Infrastructure\bin\Release\netstandard2.0\MiNegocio.Core.pdb
+D:\Proyectos\MiNegocioV1\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.csprojAssemblyReference.cache
+D:\Proyectos\MiNegocioV1\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.AssemblyInfoInputs.cache
+D:\Proyectos\MiNegocioV1\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.AssemblyInfo.cs
+D:\Proyectos\MiNegocioV1\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Proyectos\MiNegocioV1\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.csproj.CopyComplete
+D:\Proyectos\MiNegocioV1\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.dll
+D:\Proyectos\MiNegocioV1\MiNegocio.API\MiNegocio.Infrastructure\obj\Release\netstandard2.0\MiNegocio.Infrastructure.pdb
